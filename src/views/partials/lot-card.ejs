@@ -1,0 +1,117 @@
+<%
+/**
+ * A cell on the board. The reference auction sites put six things on a card —
+ * photograph, clock, what it is, how far it has run, what it is at, and what
+ * the next bid would be — so those are the six things here. `feature` promotes
+ * it to the lead cell (2×2 on the board).
+ */
+const cd     = lot.auction_ends_at ? dates.countdown(lot.auction_ends_at) : null;
+const urgent = cd && !cd.ended && cd.ms < 3600 * 1000;
+const live   = lot.status === 'live' && cd && !cd.ended;
+const bids   = lot.bid_count || 0;
+const price  = bids ? lot.current_bid : lot.starting_bid;
+const next   = price + lot.bid_increment;
+const watch  = typeof showWatch !== 'undefined' ? showWatch : true;
+const lead   = typeof feature !== 'undefined' && feature;
+%>
+<article class="cell <%= lead ? 'lead' : '' %>" data-lot="<%= lot.slug %>">
+  <figure>
+    <% if (lot.primary_image) { %>
+      <a href="/lot/<%= lot.slug %>" aria-label="<%= lot.title %>">
+        <img src="/uploads/listings/<%= lot.primary_image %>" alt="<%= lot.title %>"
+             loading="lazy" width="720" height="540">
+      </a>
+    <% } else { %>
+      <div class="lot-media-empty"><%- include('./icons', { icon: 'car', iconClass: '', strokeWidth: 1.2 }) %></div>
+    <% } %>
+
+    <div class="lot-flags">
+      <% if (live) { %>
+        <span class="tag tag-live"><span class="dot dot-pulse"></span> LIVE</span>
+      <% } else if (lot.status === 'sold') { %>
+        <span class="tag tag-ink">SOLD</span>
+      <% } %>
+      <% if (lot.title_status && lot.title_status !== 'Clean') { %>
+        <span class="tag tag-warn"><%= lot.title_status %> title</span>
+      <% } %>
+      <% if (!lot.reserve_price) { %><span class="tag tag-ink">No reserve</span><% } %>
+    </div>
+
+    <% if (watch && currentUser) { %>
+      <form method="post" action="/lot/<%= lot.slug %>/watch" style="position:absolute;top:10px;right:10px;z-index:2">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <button type="submit" class="lot-watch" style="position:static" aria-label="Toggle watchlist">
+          <%- include('./icons', { icon: 'heart', strokeWidth: 1.8 }) %>
+        </button>
+      </form>
+    <% } %>
+
+    <% if (cd) { %>
+      <span class="clock <%= urgent ? 'hot' : '' %> <%= cd.ended ? 'is-cold' : '' %>"
+            data-countdown="<%= lot.auction_ends_at %>">
+        <span data-countdown-label><%= cd.label %></span>
+      </span>
+    <% } %>
+
+    <% if (lot.view_count) { %>
+      <span class="cviews">
+        <%- include('./icons', { icon: 'eye', strokeWidth: 1.8 }) %>
+        <%= lot.view_count %>
+      </span>
+    <% } %>
+  </figure>
+
+  <div class="cbody">
+    <div class="ctag">
+      <%= lot.category_name || 'Vehicle' %><% if (lot.stock_number) { %> · <%= lot.stock_number %><% } %>
+    </div>
+
+    <h3 class="cname"><a href="/lot/<%= lot.slug %>"><%= lot.title %></a></h3>
+
+    <div class="cspec-row">
+      <div>
+        <div class="k">Mileage</div>
+        <div class="v"><%= lot.mileage === null || lot.mileage === undefined ? '—' : Number(lot.mileage).toLocaleString('en-US') + ' mi' %></div>
+      </div>
+      <div>
+        <div class="k">Fuel</div>
+        <div class="v"><%= lot.fuel_type || '—' %></div>
+      </div>
+      <div>
+        <div class="k"><%= lead ? 'Transmission' : 'Drive' %></div>
+        <div class="v"><%= (lead ? lot.transmission : lot.drivetrain) || lot.drivetrain || '—' %></div>
+      </div>
+    </div>
+
+    <% if (lead) { %>
+      <div class="cspec-row">
+        <div><div class="k">Title</div><div class="v"><%= lot.title_status || 'Clean' %></div></div>
+        <div><div class="k">Engine</div><div class="v"><%= lot.engine || lot.engine_type || '—' %></div></div>
+        <div><div class="k">Exterior</div><div class="v"><%= lot.exterior_color || '—' %></div></div>
+      </div>
+    <% } %>
+
+    <div class="cfoot">
+      <div>
+        <div class="k"><%= bids ? 'Current bid' : 'Opening bid' %></div>
+        <div class="v" data-lot-price><%= money.formatShort(price) %></div>
+      </div>
+      <div style="text-align:right">
+        <div class="k">Bids</div>
+        <div class="v" style="font-size:<%= lead ? '1rem' : '.9rem' %>"><%= bids %></div>
+      </div>
+    </div>
+
+    <div class="cnext">
+      <% if (live) { %>Next bid <%= money.formatShort(next) %><% } else { %>Auction closed<% } %>
+      · Buy now <%= money.formatShort(lot.buy_now_price) %>
+    </div>
+
+    <div class="cactions">
+      <a href="/lot/<%= lot.slug %>#bidding" class="btn btn-primary btn-sm">
+        <%= live ? 'Place a bid' : 'View vehicle' %>
+      </a>
+      <a href="/lot/<%= lot.slug %>/buy" class="btn btn-ghost btn-sm">Buy now</a>
+    </div>
+  </div>
+</article>

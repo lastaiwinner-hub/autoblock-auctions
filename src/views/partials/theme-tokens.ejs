@@ -1,0 +1,35 @@
+<style>
+  /* Emitted from config/brand.js — the single source of truth for the palette. */
+  :root {
+    --accent: <%= brand.theme.accent %>;
+    --accent-deep: <%= brand.theme.accentDeep %>;
+    --accent-soft: <%= brand.theme.accentSoft %>;
+    --accent-ink: <%= brand.theme.accentInk %>;
+    --hot: <%= brand.theme.hot %>;
+    --ink: <%= brand.theme.ink %>;
+    --ink-soft: <%= brand.theme.inkSoft %>;
+    --surface: <%= brand.theme.surface %>;
+    --surface-alt: <%= brand.theme.surfaceAlt %>;
+    --muted: <%= brand.theme.muted %>;
+    --line: <%= brand.theme.line %>;
+    --live: <%= brand.theme.live %>;
+    --success: <%= brand.theme.success %>;
+    --danger: <%= brand.theme.danger %>;
+    --info: <%= brand.theme.info %>;
+    --warn: <%= brand.theme.warn %>;
+    --radius: 6px;
+    --radius-sm: 4px;
+    /* Kept so pages written against the old palette still resolve. */
+    --grad: linear-gradient(120deg, <%= brand.theme.ink %>, <%= brand.theme.accentDeep %>);
+    --font-display: <%- brand.theme.displayFont %>;
+    --font-body: <%- brand.theme.bodyFont %>;
+    --font-mono: <%- brand.theme.monoFont %>;
+  }
+
+  /* On ink-coloured surfaces the accent has to lift off the ground. */
+  .section-dark, .footer, .sign-bar, .admin-side, .bidbox-head, .top, .cta-band {
+    --accent: #FFFFFF;
+    --accent-ink: #FFFFFF;
+    --accent-deep: rgba(255,255,255,.72);
+  }
+</style>
