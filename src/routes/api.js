@@ -32,7 +32,12 @@ router.get('/_health', (req, res) => {
     out.live = db.prepare("SELECT COUNT(*) n FROM listings WHERE status='live'").get().n;
     out.openCycles = db.prepare("SELECT COUNT(*) n FROM auction_cycles WHERE status='open'").get().n;
     out.nextEnd = (db.prepare("SELECT MIN(auction_ends_at) e FROM listings WHERE status='live'").get() || {}).e;
-  } catch (err) { out.queryError = err.message; }
+    // The same questions asked through the model, to catch the two of them
+    // ending up on different database connections inside one bundle.
+    out.modelLive = listingModel.liveCount();
+    out.modelEndingSoon = listingModel.endingSoon(9).length;
+    out.sameConnection = db === require('../../config/database').db;
+  } catch (err) { out.queryError = err.message; out.queryStack = String(err.stack).split('\n').slice(0, 3); }
   res.json(out);
 });
 
