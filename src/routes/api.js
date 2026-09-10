@@ -13,6 +13,29 @@ const router = express.Router();
  * Live state for one lot. The lot page polls this so the current bid, the
  * countdown and the bid history stay accurate without a full page reload.
  */
+/**
+ * Deployment diagnostics. Serverless containers each get their own copy of the
+ * database, so when a page looks empty this says which file that container is
+ * actually reading and what it can see in it.
+ */
+router.get('/_health', (req, res) => {
+  const fs = require('fs');
+  const config = require('../../config');
+  const out = { dbFile: config.db.file, onVercel: Boolean(process.env.VERCEL), now: new Date().toISOString() };
+  try {
+    const st = fs.statSync(config.db.file);
+    out.dbBytes = st.size;
+    out.dbModified = st.mtime.toISOString();
+  } catch (err) { out.dbError = err.message; }
+  try {
+    out.listings = db.prepare('SELECT COUNT(*) n FROM listings').get().n;
+    out.live = db.prepare("SELECT COUNT(*) n FROM listings WHERE status='live'").get().n;
+    out.openCycles = db.prepare("SELECT COUNT(*) n FROM auction_cycles WHERE status='open'").get().n;
+    out.nextEnd = (db.prepare("SELECT MIN(auction_ends_at) e FROM listings WHERE status='live'").get() || {}).e;
+  } catch (err) { out.queryError = err.message; }
+  res.json(out);
+});
+
 router.get('/lot/:slug/state', (req, res) => {
   const listing = listingModel.findBySlug(req.params.slug);
   if (!listing) return res.status(404).json({ error: 'not_found' });
