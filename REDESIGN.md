@@ -1,11 +1,11 @@
-# AutoBlock independent automotive design
+# AutoBlock vehicle auction marketplace
 
 Branch: `codex/design-refresh`.
 
-AutoBlock now has a separate design from IronLot. It uses an ivory and deep-green palette, citrus accents, a lowercase wordmark, a single-row navigation, Inter typography with Georgia italic display accents, and an uninterrupted photographic cover. It no longer loads the equipment dealership stylesheet.
+AutoBlock uses a charcoal, white and orange auction interface with an original SVG symbol and a dedicated stylesheet (`public/css/exchange.css`). It is visually independent of IronLot's navy/amber equipment dealership.
 
-The homepage places a vehicle finder below the cover, body-style links, six spacious auction cards in a three-column desktop grid, one featured vehicle story, three buying principles, FAQs and listing alerts. Rounded outlined bidding controls and a minimal footer replace the equipment site's card, navigation and footer treatment. The design extends into inventory and shared page elements.
+The opening displays a real featured auction with bid amount, bid count, time remaining and a bidding link, beside the three lots closing next. The catalogue includes nine home-page auctions, search by make/category, body-style links, no-reserve/ending-today/most-bids controls, watchlist links and direct buy/bid paths. The lower page explains bidding and provides support and stock alerts. The former lifestyle editorial hero and serif design are no longer loaded.
 
-Real locally served photographs and their existing credits are retained. Catalogue photographs remain representative. No generated imagery is used. Live bid polling, filters, search, account links and the existing bidding backend are preserved. Preview inventory uses the demo database.
+All bid information comes from the existing database/API; the existing 15-second polling updates supported fields and deadlines. The preview uses demo inventory; no fake bidders or manufactured scarcity were added. Catalogue photos are representative and remain credited at `/photo-credits`.
 
-Validation: five route and API tests pass; browser checks cover desktop/mobile layouts, navigation, filtering and search. No production deployment or payment integration changes were made.
+Validation: five route/API checks pass. Browser verification covers desktop, 768px tablet and 390px mobile, navigation, auction filtering, image loading and manufacturer browsing on IronLot. Backend bidding, identity checks, agreements and payments retain their existing implementation. Not deployed to production.

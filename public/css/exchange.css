@@ -1,0 +1,1266 @@
+body.brand-auto {
+  --ink: #20252d;
+  --brand: #df4b24;
+  --brand-ink: #fff;
+  --brand-deep: #ba3412;
+  --hot: #df4b24;
+  --accent: #df4b24;
+  --accent-hot: #df4b24;
+  --accent-light: #ff9c7c;
+  --blue: #df4b24;
+  --blue-deep: #ba3412;
+  --blue-soft: #fff0e9;
+  --night: #1c222c;
+  --line: #dfe3e8;
+  --surface-alt: #f3f5f7;
+  --muted: #66717e;
+  --font-display: "Inter", Arial, sans-serif;
+  --font-body: "Inter", Arial, sans-serif;
+  background: #f5f6f8;
+  color: var(--ink);
+}
+.brand-auto .wrap {
+  max-width: 1440px;
+  padding-inline: 36px;
+}
+.brand-auto h1,
+.brand-auto h2,
+.brand-auto h3 {
+  font-family: "Inter", sans-serif;
+  letter-spacing: -0.035em;
+  text-transform: none;
+}
+.exchange-kicker {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #687687;
+  margin-bottom: 12px;
+}
+.exchange-header {
+  background: #1c222c;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  border: 0;
+}
+.exchange-nav {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+  height: 86px;
+}
+.exchange-logo {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 850;
+  letter-spacing: -1px;
+  flex-shrink: 0;
+}
+.exchange-logo small {
+  display: block;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  margin-top: 5px;
+}
+.exchange-header .main-nav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  position: static;
+  padding: 0;
+  margin: 0 auto 0 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+.exchange-header .main-nav > a {
+  font-size: 12px;
+  text-transform: none;
+  color: #cbd0d7;
+  padding: 30px 0;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.exchange-header .main-nav > a.selected {
+  color: #fff;
+}
+.exchange-header .main-nav > a:after {
+  display: none;
+}
+.exchange-header .main-nav > a span {
+  background: #39414c;
+  color: #fff;
+  padding: 3px 6px;
+  margin-left: 5px;
+  border-radius: 3px;
+  font-size: 10px;
+}
+.exchange-account {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.exchange-account > a {
+  color: #fff;
+}
+.exchange-register {
+  background: var(--brand);
+  border-radius: 5px;
+  padding: 14px 18px;
+  display: flex;
+  gap: 22px;
+  font-weight: 650;
+}
+.exchange-header .menu-button,
+.exchange-header .main-nav .exchange-mobile-login {
+  display: none;
+}
+.exchange-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 38px;
+  padding-bottom: 30px;
+  gap: 40px;
+}
+.exchange-intro h1 {
+  font-size: 43px;
+  line-height: 1.08;
+  margin: 0 0 14px;
+  font-weight: 780;
+}
+.exchange-intro h1 span {
+  color: #c94424;
+}
+.exchange-intro p {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+}
+.exchange-stats {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+}
+.exchange-stats > div {
+  border-right: 1px solid #d6dce2;
+  padding-right: 35px;
+}
+.exchange-stats strong {
+  display: block;
+  font-size: 35px;
+  line-height: 1;
+  font-weight: 750;
+}
+.exchange-stats span {
+  display: block;
+  font-size: 11px;
+  margin-top: 10px;
+  color: var(--muted);
+}
+.exchange-stats > a {
+  display: grid;
+  grid-template-columns: 24px auto;
+  gap: 5px 10px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.exchange-stats svg {
+  width: 23px;
+  height: 23px;
+  grid-row: span 2;
+  color: var(--brand);
+}
+.exchange-stats b {
+  font-size: 12px;
+  color: var(--ink);
+}
+.exchange-stage {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 24px;
+}
+.exchange-feature {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  overflow: hidden;
+}
+.exchange-feature-image {
+  display: block;
+  position: relative;
+  height: 285px;
+  overflow: hidden;
+}
+.exchange-feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 57%;
+}
+.exchange-feature-tag {
+  position: absolute;
+  left: 20px;
+  top: 18px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  font-size: 10px;
+  font-weight: 750;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px #0001;
+}
+.exchange-feature-tag svg {
+  height: 14px;
+  width: 14px;
+  color: var(--brand);
+}
+.exchange-feature-info {
+  padding: 20px 24px;
+}
+.exchange-feature-info .exchange-kicker {
+  margin-bottom: 8px;
+  font-size: 9px;
+}
+.exchange-feature-info h2 {
+  font-size: 24px;
+  line-height: 1.25;
+  margin: 0 0 8px;
+  font-weight: 750;
+}
+.exchange-feature-info p {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 0;
+}
+.exchange-feature-bid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.1fr;
+  gap: 20px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  margin-top: 18px;
+  padding-top: 16px;
+}
+.exchange-feature-bid > div > span {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+.exchange-feature-bid strong {
+  display: inline-block;
+  font-size: 29px;
+  line-height: 1.2;
+  font-weight: 750;
+  letter-spacing: -0.05em;
+}
+.exchange-feature-bid small {
+  font-size: 10px;
+  color: var(--muted);
+  margin-left: 10px;
+  white-space: nowrap;
+}
+.exchange-feature-bid .exchange-feature-clock strong {
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  color: #c34425;
+}
+.exchange-feature-bid .action-bid {
+  margin: 0;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 5px;
+  min-height: 46px;
+  font-size: 12px;
+}
+.exchange-closing {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 22px;
+}
+.exchange-closing-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.exchange-closing-title h2 {
+  font-size: 19px;
+  margin: 0;
+  font-weight: 750;
+}
+.exchange-closing-title > svg {
+  width: 20px;
+  height: 20px;
+  margin-left: auto;
+  color: var(--muted);
+}
+.exchange-closing > p {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 9px 0 16px;
+}
+.closing-lot {
+  display: flex;
+  gap: 13px;
+  position: relative;
+  padding: 19px 0;
+  border-top: 1px solid var(--line);
+  align-items: center;
+}
+.closing-lot img {
+  width: 102px;
+  height: 82px;
+  object-fit: cover;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+.closing-lot h3 {
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 0 12px 6px 0;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.closing-lot strong {
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  display: block;
+}
+.closing-lot div > span {
+  font-size: 10px;
+  color: #c14424;
+  display: block;
+  margin-top: 3px;
+}
+.closing-arrow {
+  position: absolute;
+  right: 0;
+  top: 23px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.closing-all {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 650;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.exchange-benefits {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 23px;
+  padding-bottom: 26px;
+}
+.exchange-benefits > span,
+.exchange-benefits > a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  color: #566373;
+}
+.exchange-benefits svg {
+  height: 19px;
+  width: 19px;
+  color: #758293;
+}
+.exchange-benefits > a {
+  font-weight: 650;
+  color: var(--ink);
+}
+.exchange-search {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  background: #e9edf2;
+  padding-top: 23px;
+  padding-bottom: 23px;
+  border-top: 1px solid #dce2e9;
+  border-bottom: 1px solid #dce2e9;
+}
+.exchange-search > div {
+  min-width: 180px;
+}
+.exchange-search h2 {
+  font-size: 17px;
+  margin: 0 0 5px;
+  letter-spacing: -0.03em;
+}
+.exchange-search > div > span {
+  font-size: 11px;
+  color: var(--muted);
+}
+.exchange-search .auction-search {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  flex: 1;
+  grid-template-columns: 1.5fr 1fr 1fr auto;
+  gap: 8px;
+}
+.exchange-search .auction-search > div {
+  background: #fff;
+  border: 1px solid #d4dbe3;
+  border-radius: 5px;
+  padding: 0 12px;
+  min-height: 46px;
+}
+.exchange-search input,
+.exchange-search select {
+  font-size: 12px;
+  background: white;
+  color: var(--ink);
+  width: 100%;
+  min-width: 0;
+}
+.exchange-search .action {
+  font-size: 11px;
+  background: #202936;
+  color: #fff;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+.exchange-body-types {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e0e4e9;
+}
+.exchange-body-types > a {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  font-size: 11px;
+  white-space: nowrap;
+  min-height: 40px;
+}
+.exchange-body-types svg {
+  width: 22px;
+  height: 22px;
+  color: #697888;
+}
+.exchange-body-types small {
+  color: #8793a0;
+  font-size: 9px;
+}
+.exchange-body-types > a:first-child {
+  font-weight: 700;
+  color: #cf4826;
+}
+.brand-auto .auction-market {
+  background: #f5f6f8;
+  padding: 40px 0 45px;
+}
+.brand-auto .market-title {
+  margin-bottom: 24px;
+}
+.brand-auto .market-title h2 {
+  font-size: 30px;
+  font-weight: 750;
+}
+.brand-auto .link-arrow {
+  font-size: 12px;
+  color: var(--ink);
+}
+.brand-auto .auction-toolbar {
+  padding-bottom: 17px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+.brand-auto .auction-tabs {
+  gap: 7px;
+}
+.brand-auto .auction-tabs button {
+  font-size: 11px;
+  min-height: 39px;
+  border-radius: 4px;
+  border: 1px solid #d8dfe7;
+  padding: 8px 14px;
+  background: #fff;
+  color: var(--ink);
+}
+.brand-auto .auction-tabs button.is-active {
+  background: #202936;
+  color: white;
+  border-color: #202936;
+}
+.brand-auto .sync-label {
+  font-size: 10px;
+}
+.brand-auto .market-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.brand-auto .auction-card {
+  border: 1px solid #dde3e9;
+  border-radius: 7px;
+  box-shadow: 0 2px 3px #14203b03;
+  background: #fff;
+}
+.brand-auto .auction-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px #14203b10;
+}
+.brand-auto .auction-card-image {
+  aspect-ratio: 1.6;
+}
+.brand-auto .auction-countdown {
+  background: #1d2633ed;
+  justify-content: space-between;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 31px;
+  font-size: 11px;
+  gap: 7px;
+}
+.brand-auto .auction-countdown > span {
+  margin-right: auto;
+}
+.brand-auto .auction-state {
+  font-size: 9px;
+  background: #fff;
+  color: #283548;
+  left: 12px;
+  top: 12px;
+  border-radius: 3px;
+  padding: 6px 8px;
+}
+.brand-auto .save-auction {
+  width: 33px;
+  height: 33px;
+  top: 10px;
+  right: 10px;
+  background: white;
+  color: #344253;
+}
+.brand-auto .auction-card-body {
+  padding: 17px;
+}
+.brand-auto .auction-meta {
+  font-size: 9px;
+  color: #738093;
+  letter-spacing: 0.07em;
+}
+.brand-auto .auction-card h3 {
+  font-size: 17px;
+  line-height: 1.4;
+  min-height: 47px;
+  font-weight: 750;
+}
+.brand-auto .auction-specs {
+  font-size: 10px;
+  color: #6e7a87;
+  min-height: 31px;
+}
+.brand-auto .auction-price-row {
+  padding-top: 13px;
+  margin-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.brand-auto .auction-price-row strong {
+  font-size: 28px;
+  font-weight: 760;
+}
+.brand-auto .price-caption {
+  font-size: 10px;
+}
+.brand-auto .bid-total {
+  font-size: 10px;
+}
+.brand-auto .action-bid {
+  background: #df4b24;
+  color: #fff;
+  min-height: 43px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+.brand-auto .action-bid:hover {
+  background: #b73716;
+}
+.brand-auto .buy-outright {
+  font-size: 10px;
+}
+.brand-auto .market-bottom p {
+  font-size: 10px;
+}
+.brand-auto .action-outline {
+  font-size: 11px;
+  border: 1px solid #c9d1dc;
+  border-radius: 4px;
+  color: var(--ink);
+}
+.exchange-guide {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  gap: 26px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-top: 1px solid #dce1e8;
+}
+.exchange-guide h2 {
+  font-size: 31px;
+  margin: 0 0 13px;
+}
+.exchange-guide p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.exchange-guide-intro > a {
+  font-size: 11px;
+  font-weight: 650;
+}
+.exchange-guide article > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 20px;
+  color: #a1abba;
+}
+.exchange-guide article svg {
+  width: 28px;
+  height: 28px;
+  color: #cc4828;
+}
+.exchange-guide article > div > span {
+  font-size: 23px;
+  font-weight: 700;
+}
+.exchange-guide h3 {
+  font-size: 15px;
+  line-height: 1.4;
+  margin: 0 0 10px;
+}
+.exchange-help {
+  margin-top: 15px;
+  margin-bottom: 50px;
+}
+.exchange-help > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #e8edf4;
+  padding: 28px;
+  border-radius: 7px;
+}
+.exchange-help > div > svg {
+  width: 35px;
+  height: 35px;
+  color: #6a7c93;
+}
+.exchange-help h2 {
+  font-size: 20px;
+  margin: 0 0 6px;
+}
+.exchange-help p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0;
+}
+.exchange-help > div > a {
+  margin-left: auto;
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.exchange-help > a {
+  display: block;
+  margin-top: 13px;
+  font-size: 11px;
+  text-align: right;
+}
+.brand-auto .newsletter-section {
+  background: #212a38;
+  padding: 50px 0;
+}
+.brand-auto .newsletter-section h2 {
+  font-size: 31px;
+}
+.brand-auto .newsletter-section .section-kicker {
+  color: #ff9f81;
+}
+.brand-auto .newsletter-section p {
+  font-size: 13px;
+}
+.brand-auto .newsletter-section label {
+  font-size: 11px;
+}
+.brand-auto .newsletter-section input {
+  font-size: 12px;
+  border-radius: 4px;
+}
+.brand-auto .newsletter-section button {
+  font-size: 11px;
+  border-radius: 4px;
+  background: #df4b24;
+  color: white;
+}
+.drive-footer {
+  padding: 45px 0 22px;
+  background: #171f2b;
+  color: #d5dbe4;
+}
+.drive-footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+.drive-footer .drive-logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.04em;
+}
+.drive-logo small {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.drive-footer-top p {
+  font-size: 13px;
+  color: #929eae;
+}
+.drive-footer-top > a:last-child {
+  font-size: 13px;
+  color: #fff;
+}
+.drive-footer-links {
+  display: flex;
+  gap: 35px;
+  padding: 35px 0;
+  font-size: 12px;
+}
+.drive-footer-bottom {
+  display: flex;
+  gap: 25px;
+  border-top: 1px solid #39414c;
+  padding-top: 22px;
+  font-size: 10px;
+  color: #9eabbc;
+}
+.drive-footer-bottom > span:first-child {
+  margin-right: auto;
+}
+@media (max-width: 1100px) {
+  .exchange-nav {
+    gap: 25px;
+  }
+  .exchange-header .main-nav {
+    gap: 18px;
+  }
+  .exchange-account {
+    gap: 15px;
+  }
+  .exchange-logo {
+    font-size: 21px;
+  }
+  .exchange-account > a:first-child {
+    display: none;
+  }
+  .exchange-intro h1 {
+    font-size: 37px;
+  }
+  .exchange-stats {
+    gap: 20px;
+  }
+  .exchange-stats > div {
+    padding-right: 20px;
+  }
+  .exchange-stage {
+    grid-template-columns: 1.65fr 1fr;
+    gap: 18px;
+  }
+  .exchange-feature-image {
+    height: 265px;
+  }
+  .exchange-closing {
+    padding: 18px;
+  }
+  .closing-lot img {
+    width: 82px;
+    height: 77px;
+  }
+  .exchange-feature-info {
+    padding: 18px;
+  }
+  .exchange-feature-info h2 {
+    font-size: 22px;
+  }
+  .exchange-feature-bid {
+    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .exchange-feature-bid .action {
+    grid-column: 1/-1;
+  }
+  .exchange-search {
+    display: block;
+  }
+  .exchange-search > div {
+    margin-bottom: 14px;
+  }
+  .exchange-body-types {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .exchange-guide {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .exchange-guide-intro {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 35px;
+  }
+  .exchange-guide-intro .exchange-kicker {
+    grid-column: 1/-1;
+  }
+}
+@media (max-width: 800px) {
+  .brand-auto .wrap {
+    padding-inline: 24px;
+  }
+  .exchange-header .main-nav > a:nth-child(4) {
+    display: none;
+  }
+  .exchange-nav {
+    height: 78px;
+    gap: 22px;
+  }
+  .exchange-header .main-nav {
+    gap: 17px;
+  }
+  .exchange-header .main-nav > a {
+    font-size: 11px;
+  }
+  .exchange-logo {
+    font-size: 19px;
+    gap: 8px;
+  }
+  .exchange-logo img {
+    width: 36px;
+    height: 36px;
+  }
+  .exchange-register {
+    font-size: 11px;
+    padding: 12px;
+    gap: 12px;
+  }
+  .exchange-intro {
+    padding-top: 28px;
+  }
+  .exchange-intro h1 {
+    font-size: 33px;
+  }
+  .exchange-stats > a {
+    display: none;
+  }
+  .exchange-stage {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 15px;
+  }
+  .exchange-feature-image {
+    height: 225px;
+  }
+  .exchange-feature-info h2 {
+    font-size: 19px;
+  }
+  .exchange-feature-info p {
+    line-height: 1.7;
+  }
+  .exchange-feature-bid strong {
+    font-size: 25px;
+  }
+  .exchange-feature-bid small {
+    margin: 5px 0 0;
+    display: block;
+  }
+  .exchange-feature-bid .exchange-feature-clock strong {
+    font-size: 15px;
+  }
+  .closing-lot {
+    gap: 9px;
+    padding: 16px 0;
+  }
+  .closing-lot img {
+    width: 65px;
+    height: 69px;
+  }
+  .closing-lot h3 {
+    font-size: 10px;
+  }
+  .closing-lot strong {
+    font-size: 15px;
+  }
+  .closing-lot div > span {
+    font-size: 9px;
+  }
+  .exchange-closing-title h2 {
+    font-size: 17px;
+  }
+  .exchange-benefits {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .exchange-benefits > span,
+  .exchange-benefits > a {
+    font-size: 10px;
+  }
+  .exchange-search .auction-search {
+    grid-template-columns: 1.3fr 1fr 1fr auto;
+  }
+  .exchange-search .action {
+    padding: 10px;
+  }
+  .brand-auto .market-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .exchange-guide {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .exchange-help > div {
+    flex-wrap: wrap;
+  }
+  .exchange-help > div > a {
+    margin-left: 55px;
+  }
+  .drive-footer-links {
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+}
+@media (max-width: 620px) {
+  .brand-auto .wrap {
+    padding-inline: 18px;
+  }
+  .exchange-nav {
+    height: 74px;
+    gap: 12px;
+  }
+  .exchange-logo {
+    font-size: 19px;
+  }
+  .exchange-logo small {
+    font-size: 7px;
+  }
+  .exchange-logo img {
+    width: 33px;
+    height: 33px;
+  }
+  .exchange-account {
+    margin-left: auto;
+  }
+  .exchange-register {
+    font-size: 10px;
+    padding: 11px 12px;
+  }
+  .exchange-register span {
+    display: none;
+  }
+  .exchange-header .menu-button {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #4b5462;
+    border-radius: 4px;
+    background: transparent;
+    color: white;
+    margin: 0;
+  }
+  .exchange-header .main-nav {
+    display: none;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 16px 20px;
+    background: #1c222c;
+    border-bottom: 1px solid #495366;
+  }
+  .exchange-header .main-nav.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .exchange-header .main-nav > a,
+  .exchange-header .main-nav > a:nth-child(4),
+  .exchange-header .main-nav .exchange-mobile-login {
+    display: block;
+    font-size: 14px;
+    padding: 15px 0;
+  }
+  .exchange-intro {
+    display: block;
+    padding-top: 26px;
+    padding-bottom: 22px;
+  }
+  .exchange-intro h1 {
+    font-size: 36px;
+  }
+  .exchange-kicker {
+    font-size: 9px;
+  }
+  .exchange-intro p {
+    font-size: 12px;
+  }
+  .exchange-stats {
+    margin-top: 23px;
+    gap: 28px;
+  }
+  .exchange-stats strong {
+    font-size: 25px;
+  }
+  .exchange-stats span {
+    font-size: 10px;
+    margin-top: 5px;
+  }
+  .exchange-stats > div {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding-right: 25px;
+  }
+  .exchange-stage {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .exchange-feature-image {
+    height: 225px;
+  }
+  .exchange-feature-info h2 {
+    font-size: 22px;
+  }
+  .exchange-feature-info p {
+    font-size: 10px;
+  }
+  .exchange-feature-bid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .exchange-feature-bid strong {
+    font-size: 29px;
+  }
+  .exchange-feature-bid small {
+    display: inline-block;
+    margin-left: 9px;
+  }
+  .exchange-feature-bid .action {
+    min-height: 45px;
+  }
+  .exchange-closing {
+    padding: 18px;
+  }
+  .closing-lot {
+    padding: 13px 0;
+    gap: 14px;
+  }
+  .closing-lot img {
+    width: 95px;
+    height: 70px;
+  }
+  .closing-lot h3 {
+    font-size: 12px;
+  }
+  .closing-lot strong {
+    font-size: 17px;
+  }
+  .closing-lot div > span {
+    font-size: 10px;
+  }
+  .exchange-closing > p {
+    margin-bottom: 12px;
+  }
+  .exchange-closing-title h2 {
+    font-size: 19px;
+  }
+  .exchange-benefits {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 14px;
+    padding-top: 22px;
+    padding-bottom: 25px;
+  }
+  .exchange-benefits > span,
+  .exchange-benefits > a {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+  .exchange-benefits svg {
+    flex-shrink: 0;
+  }
+  .exchange-search .auction-search {
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+  }
+  .exchange-search .search-query {
+    grid-column: 1/-1;
+  }
+  .exchange-search .auction-search > .action {
+    grid-column: 1/-1;
+    min-height: 43px;
+  }
+  .exchange-search input,
+  .exchange-search select {
+    min-height: 43px;
+  }
+  .exchange-body-types {
+    gap: 6px 18px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .exchange-body-types > a {
+    font-size: 10px;
+  }
+  .exchange-body-types svg {
+    width: 18px;
+  }
+  .brand-auto .auction-market {
+    padding-top: 29px;
+  }
+  .brand-auto .market-title {
+    display: block;
+  }
+  .brand-auto .market-title h2 {
+    font-size: 29px;
+    margin-bottom: 14px;
+  }
+  .brand-auto .auction-toolbar {
+    display: block;
+  }
+  .brand-auto .auction-tabs {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .brand-auto .auction-tabs button {
+    font-size: 10px;
+    padding: 8px 11px;
+  }
+  .brand-auto .sync-label {
+    display: block;
+    margin-top: 14px;
+  }
+  .brand-auto .market-grid {
+    grid-template-columns: 1fr;
+  }
+  .brand-auto .auction-card h3 {
+    font-size: 19px;
+    min-height: 0;
+  }
+  .brand-auto .auction-specs {
+    font-size: 11px;
+    min-height: 0;
+  }
+  .brand-auto .auction-card-image {
+    aspect-ratio: 1.55;
+  }
+  .brand-auto .auction-card-body {
+    padding: 18px;
+  }
+  .brand-auto .auction-meta {
+    font-size: 10px;
+  }
+  .brand-auto .market-bottom {
+    display: block;
+  }
+  .brand-auto .market-bottom .action {
+    margin-top: 14px;
+  }
+  .exchange-guide {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    gap: 28px 24px;
+  }
+  .exchange-guide-intro {
+    display: block;
+  }
+  .exchange-guide-intro h2 br {
+    display: none;
+  }
+  .exchange-guide h3 {
+    font-size: 15px;
+  }
+  .exchange-guide article p {
+    font-size: 11px;
+  }
+  .exchange-guide article > div {
+    padding-bottom: 14px;
+  }
+  .exchange-help {
+    margin-bottom: 35px;
+  }
+  .exchange-help > div {
+    padding: 22px;
+    gap: 15px;
+  }
+  .exchange-help > div > svg {
+    width: 26px;
+    height: 26px;
+  }
+  .exchange-help h2 {
+    font-size: 18px;
+  }
+  .exchange-help p {
+    line-height: 1.7;
+  }
+  .exchange-help > div > a {
+    margin: 0;
+    font-size: 17px;
+  }
+  .brand-auto .newsletter-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .brand-auto .newsletter-section h2 {
+    font-size: 29px;
+  }
+  .drive-footer-top {
+    display: block;
+  }
+  .drive-footer-top p {
+    margin: 16px 0;
+  }
+  .drive-footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .drive-footer-bottom {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .drive-footer-bottom > span:first-child {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-auto .auction-card:hover {
+    transform: none;
+  }
+}
+@media(min-width:1101px){.exchange-intro{padding-top:26px;padding-bottom:24px}.exchange-intro h1{font-size:39px}.exchange-feature-image{height:240px}.exchange-feature-info{padding:17px 22px}.exchange-feature-bid{margin-top:14px;padding-top:14px}.closing-lot{padding:14px 0}.closing-lot img{height:76px}.exchange-closing{padding:20px}}

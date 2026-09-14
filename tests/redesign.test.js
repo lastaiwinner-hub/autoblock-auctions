@@ -84,7 +84,7 @@ test("home handles an empty auction catalogue", async () => {
     db.prepare("UPDATE listings SET status='draft'").run();
     const html = await (await fetch(base)).text();
     assert.match(html, /No live auctions right now/);
-    assert.match(html, /brand-hero.webp/);
+    assert.match(html, /The next lineup is on its way/);
   } finally {
     const restore = db.prepare("UPDATE listings SET status=? WHERE id=?");
     db.transaction(() => before.forEach((l) => restore.run(l.status, l.id)))();
