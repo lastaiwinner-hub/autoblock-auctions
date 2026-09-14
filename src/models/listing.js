@@ -9,7 +9,8 @@ const LIST_SELECT = `
          c.slug AS category_slug,
          (SELECT file_name FROM listing_images i
            WHERE i.listing_id = l.id
-           ORDER BY i.is_primary DESC, i.sort_order ASC LIMIT 1) AS primary_image
+           ORDER BY i.is_primary DESC, i.sort_order ASC LIMIT 1) AS primary_image,
+         (SELECT COUNT(*) FROM listing_images i WHERE i.listing_id = l.id) AS photo_count
     FROM listings l
     LEFT JOIN categories c ON c.id = l.category_id
 `;

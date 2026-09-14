@@ -9,3 +9,5 @@ The opening displays a real featured auction with bid amount, bid count, time re
 All bid information comes from the existing database/API; the existing 15-second polling updates supported fields and deadlines. The preview uses demo inventory; no fake bidders or manufactured scarcity were added. Catalogue photos are representative and remain credited at `/photo-credits`.
 
 Validation: five route/API checks pass. Browser verification covers desktop, 768px tablet and 390px mobile, navigation, auction filtering, image loading and manufacturer browsing on IronLot. Backend bidding, identity checks, agreements and payments retain their existing implementation. Not deployed to production.
+
+The auction-house refinement adds a utility navigation bar, a side-by-side featured vehicle and specification/bid panel on wide screens, refined listing cards, lot references and database-backed photo counts. Layouts are responsive at mobile/tablet/desktop sizes. Existing representative photography and auction functions are retained.

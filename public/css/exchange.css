@@ -1263,4 +1263,743 @@ body.brand-auto {
     transform: none;
   }
 }
-@media(min-width:1101px){.exchange-intro{padding-top:26px;padding-bottom:24px}.exchange-intro h1{font-size:39px}.exchange-feature-image{height:240px}.exchange-feature-info{padding:17px 22px}.exchange-feature-bid{margin-top:14px;padding-top:14px}.closing-lot{padding:14px 0}.closing-lot img{height:76px}.exchange-closing{padding:20px}}
+@media (min-width: 1101px) {
+  .exchange-intro {
+    padding-top: 26px;
+    padding-bottom: 24px;
+  }
+  .exchange-intro h1 {
+    font-size: 39px;
+  }
+  .exchange-feature-image {
+    height: 240px;
+  }
+  .exchange-feature-info {
+    padding: 17px 22px;
+  }
+  .exchange-feature-bid {
+    margin-top: 14px;
+    padding-top: 14px;
+  }
+  .closing-lot {
+    padding: 14px 0;
+  }
+  .closing-lot img {
+    height: 76px;
+  }
+  .exchange-closing {
+    padding: 20px;
+  }
+}
+/* Branded auction-house refinement. */
+body.brand-auto {
+  --brand: #cf421f;
+  --hot: #cf421f;
+  --accent: #cf421f;
+  --blue: #cf421f;
+  background: #f4f5f7;
+}
+.auto-utility {
+  background: #eef0f3;
+  border-bottom: 1px solid #dfe3e8;
+}
+.auto-utility > .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32px;
+  font-size: 9px;
+  letter-spacing: 0.09em;
+  color: #627082;
+}
+.auto-utility .wrap > div {
+  display: flex;
+  gap: 24px;
+  letter-spacing: 0;
+  font-size: 10px;
+}
+.exchange-header {
+  background: #181f2b;
+  box-shadow: 0 3px 15px #14213a12;
+}
+.exchange-nav {
+  height: 82px;
+}
+.exchange-logo {
+  font-size: 25px;
+  letter-spacing: -1px;
+}
+.exchange-logo small {
+  font-size: 8px;
+  letter-spacing: 0.31em;
+}
+.exchange-header .main-nav > a {
+  font-size: 12px;
+  font-weight: 500;
+}
+.exchange-register {
+  background: #cf421f;
+  padding: 14px 21px;
+  border-radius: 3px;
+}
+.exchange-intro {
+  padding-top: 33px;
+  padding-bottom: 29px;
+}
+.exchange-intro h1 {
+  font-size: 39px;
+  letter-spacing: -0.048em;
+  font-weight: 730;
+  line-height: 1.13;
+}
+.exchange-intro h1 span {
+  color: #25354a;
+}
+.exchange-intro p {
+  font-size: 13px;
+}
+.exchange-kicker {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+}
+.exchange-stats strong {
+  font-size: 32px;
+  font-weight: 650;
+}
+.exchange-stats > div {
+  padding-right: 32px;
+}
+.exchange-stats > a {
+  padding: 14px;
+  background: #e8ecf1;
+  border: 1px solid #dce2e9;
+  border-radius: 4px;
+}
+.exchange-stage {
+  grid-template-columns: minmax(0, 2.45fr) minmax(285px, 1fr);
+  gap: 25px;
+  align-items: stretch;
+}
+.exchange-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  grid-template-rows: 1fr auto;
+  border-radius: 5px;
+  border-color: #d8dee6;
+  box-shadow: 0 5px 22px #15233a07;
+}
+.exchange-feature-image {
+  height: 100%;
+  min-height: 350px;
+  grid-column: 1;
+  grid-row: 1;
+}
+.exchange-feature-image img {
+  object-fit: cover;
+  object-position: 45% center;
+}
+.exchange-feature-tag {
+  font-size: 9px;
+  left: 16px;
+  top: 16px;
+  padding: 9px 10px;
+  letter-spacing: 0.03em;
+}
+.exchange-feature-info {
+  padding: 25px 24px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.exchange-feature-info .exchange-kicker {
+  font-size: 9px;
+  line-height: 1.7;
+  margin-bottom: 13px;
+  color: #b04025;
+  font-weight: 700;
+}
+.exchange-feature-info h2 {
+  font-size: 25px;
+  line-height: 1.16;
+  font-weight: 740;
+  letter-spacing: -0.04em;
+  margin-bottom: 15px;
+}
+.exchange-feature-info p {
+  font-size: 11px;
+  line-height: 1.9;
+  color: #788390;
+}
+.auction-reference {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 9px;
+  letter-spacing: 0.075em;
+  color: #6e7c8d;
+  margin-bottom: 13px;
+}
+.exchange-feature-info .auction-reference {
+  font-size: 8px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+.exchange-feature-info .auction-reference span {
+  display: none;
+}
+.exchange-feature-bid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 14px;
+  background: #f3f5f8;
+  padding: 17px;
+  margin: 18px -5px 0;
+  border: 1px solid #e4e8ed;
+  border-radius: 4px;
+}
+.exchange-feature-bid strong {
+  font-size: 29px;
+  font-weight: 760;
+}
+.exchange-feature-bid small {
+  display: block;
+  margin: 7px 0 0;
+  font-size: 10px;
+}
+.exchange-feature-bid > div > span {
+  font-size: 10px;
+}
+.exchange-feature-bid .exchange-feature-clock strong {
+  font-size: 14px;
+  color: #bd4225;
+  line-height: 1.45;
+}
+.exchange-feature-bid .action-bid {
+  grid-column: 1/-1;
+  background: #cf421f;
+  min-height: 44px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+.featured-bottom {
+  grid-column: 1/-1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 19px;
+  background: #fff;
+  border-top: 1px solid #e1e6ec;
+  font-size: 10px;
+  color: #6a788a;
+}
+.featured-bottom > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.featured-bottom svg {
+  width: 15px;
+  height: 15px;
+}
+.featured-bottom > a {
+  color: #273d56;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.exchange-closing {
+  padding: 21px;
+  border-radius: 5px;
+  box-shadow: 0 5px 22px #15233a04;
+}
+.exchange-closing-title h2 {
+  font-size: 18px;
+  letter-spacing: -0.03em;
+}
+.exchange-closing > p {
+  font-size: 11px;
+  margin: 10px 0 17px;
+}
+.closing-lot {
+  padding: 17px 0;
+  gap: 12px;
+}
+.closing-lot img {
+  width: 82px;
+  height: 74px;
+  border-radius: 3px;
+}
+.closing-lot h3 {
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+.closing-lot strong {
+  font-size: 18px;
+}
+.closing-lot div > span {
+  font-size: 10px;
+}
+.closing-all {
+  font-size: 11px;
+  padding-top: 17px;
+}
+.exchange-benefits {
+  padding-top: 22px;
+  padding-bottom: 24px;
+}
+.exchange-benefits svg {
+  color: #697a8e;
+}
+.exchange-search {
+  border: 1px solid #dae1e9;
+  background: #e9edf2;
+  border-radius: 4px;
+  margin-top: 8px;
+  width: calc(100% - 72px);
+  padding: 22px !important;
+  max-width: 1368px !important;
+}
+.exchange-search .auction-search input,
+.exchange-search .auction-search select {
+  font-size: 12px;
+}
+.exchange-search h2 {
+  font-size: 16px;
+}
+.exchange-body-types {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  gap: 29px;
+}
+.exchange-body-types > a {
+  font-size: 11px;
+}
+.exchange-body-types svg {
+  display: none;
+}
+.exchange-body-types small {
+  background: #e7ebf0;
+  border-radius: 3px;
+  padding: 2px 5px;
+  color: #667486;
+}
+.brand-auto .market-title h2 {
+  font-size: 32px;
+  font-weight: 740;
+  letter-spacing: -0.04em;
+}
+.brand-auto .auction-market {
+  padding-top: 38px;
+}
+.brand-auto .auction-toolbar {
+  margin-bottom: 25px;
+}
+.brand-auto .market-grid {
+  gap: 27px;
+}
+.brand-auto .auction-card {
+  border-radius: 5px;
+  border-color: #d9e0e8;
+  box-shadow: 0 3px 12px #20365104;
+}
+.brand-auto .auction-card-image {
+  aspect-ratio: 1.5;
+}
+.brand-auto .auction-card-body {
+  padding: 21px;
+}
+.brand-auto .auction-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  min-height: 50px;
+}
+.brand-auto .auction-meta {
+  font-size: 9px;
+  font-weight: 650;
+}
+.brand-auto .auction-specs {
+  font-size: 11px;
+  line-height: 1.8;
+}
+.brand-auto .auction-countdown {
+  font-size: 11px;
+  min-height: 34px;
+  background: #1a273bec;
+}
+.brand-auto .auction-price-row {
+  padding-top: 17px;
+  margin-top: 16px;
+}
+.brand-auto .auction-price-row strong {
+  font-size: 30px;
+  font-weight: 730;
+}
+.brand-auto .action-bid {
+  background: #cf421f;
+  min-height: 46px;
+  border-radius: 3px;
+  font-weight: 650;
+}
+.brand-auto .buy-outright {
+  padding-top: 12px;
+  font-size: 10px;
+}
+.brand-auto .auction-reference span {
+  color: #8c96a4;
+}
+.exchange-guide {
+  margin-top: 12px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+.exchange-guide article {
+  background: white;
+  border: 1px solid #dde4eb;
+  border-radius: 4px;
+  padding: 20px;
+}
+.exchange-guide article > div {
+  padding-bottom: 18px;
+}
+.exchange-guide article > div > span {
+  font-size: 17px;
+  color: #a3b0c0;
+}
+.exchange-guide h3 {
+  font-size: 16px;
+}
+.exchange-guide-intro h2 {
+  font-size: 34px;
+}
+.exchange-help > div {
+  background: #e6ecf4;
+  border: 1px solid #d6deea;
+}
+.drive-footer .drive-logo {
+  letter-spacing: -0.055em;
+}
+.drive-footer-links {
+  border-bottom: 0;
+}
+@media (min-width: 1600px) {
+  .exchange-feature-image {
+    min-height: 380px;
+  }
+  .exchange-feature-info h2 {
+    font-size: 29px;
+  }
+  .exchange-feature-bid strong {
+    font-size: 33px;
+  }
+}
+@media (max-width: 1100px) {
+  .exchange-stage {
+    grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+    gap: 18px;
+  }
+  .exchange-feature {
+    grid-template-columns: 1fr;
+  }
+  .exchange-feature-image {
+    height: 245px;
+    min-height: 0;
+    grid-row: auto;
+  }
+  .exchange-feature-info {
+    padding: 20px;
+  }
+  .exchange-feature-info h2 {
+    font-size: 24px;
+  }
+  .exchange-feature-info p {
+    font-size: 11px;
+  }
+  .exchange-feature-bid {
+    grid-template-columns: 1fr 1fr 1.2fr;
+    align-items: center;
+    margin: 16px 0 0;
+  }
+  .exchange-feature-bid .action-bid {
+    grid-column: auto;
+  }
+  .exchange-feature-bid small {
+    display: inline;
+    margin-left: 7px;
+  }
+  .featured-bottom {
+    font-size: 9px;
+    padding: 13px 18px;
+  }
+  .exchange-closing {
+    display: flex;
+    flex-direction: column;
+  }
+  .closing-lot {
+    flex: 1;
+  }
+  .closing-all {
+    margin-top: auto;
+  }
+  .exchange-guide {
+    gap: 18px;
+  }
+  .exchange-guide article {
+    padding: 18px;
+  }
+  .exchange-stats > a {
+    display: none;
+  }
+}
+@media (max-width: 800px) {
+  .auto-utility .wrap > span {
+    font-size: 8px;
+  }
+  .auto-utility .wrap > div {
+    gap: 14px;
+  }
+  .exchange-intro h1 {
+    font-size: 34px;
+  }
+  .exchange-stage {
+    grid-template-columns: minmax(0, 1.5fr) minmax(250px, 1fr);
+  }
+  .exchange-feature-bid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .exchange-feature-bid .action-bid {
+    grid-column: 1/-1;
+  }
+  .featured-bottom > span {
+    display: none;
+  }
+  .featured-bottom {
+    justify-content: flex-end;
+  }
+  .exchange-feature-info h2 {
+    font-size: 23px;
+  }
+  .exchange-search {
+    width: calc(100% - 48px);
+  }
+  .exchange-body-types {
+    gap: 16px;
+  }
+  .closing-lot {
+    gap: 10px;
+  }
+  .closing-lot img {
+    width: 70px;
+  }
+  .exchange-closing {
+    padding: 18px;
+  }
+  .exchange-nav {
+    height: 78px;
+  }
+}
+@media (max-width: 620px) {
+  .auto-utility > .wrap {
+    height: 28px;
+  }
+  .auto-utility .wrap > span {
+    font-size: 7px;
+    letter-spacing: 0.04em;
+  }
+  .auto-utility .wrap > div > a:not(:last-child) {
+    display: none;
+  }
+  .auto-utility .wrap > div {
+    font-size: 9px;
+  }
+  .exchange-nav {
+    height: 74px;
+  }
+  .exchange-logo {
+    font-size: 19px;
+    letter-spacing: -0.06em;
+  }
+  .exchange-logo small {
+    font-size: 7px;
+    letter-spacing: 0.22em;
+  }
+  .exchange-register {
+    font-size: 10px;
+    padding: 11px 12px;
+  }
+  .exchange-intro {
+    padding-top: 25px;
+    padding-bottom: 24px;
+  }
+  .exchange-intro h1 {
+    font-size: 34px;
+  }
+  .exchange-intro p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .exchange-intro .exchange-kicker {
+    font-size: 8px;
+  }
+  .exchange-stats {
+    margin-top: 22px;
+  }
+  .exchange-stats > div {
+    padding-right: 20px;
+  }
+  .exchange-stats strong {
+    font-size: 25px;
+  }
+  .exchange-stage {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .exchange-feature-image {
+    height: 250px;
+    min-height: 0;
+    object-position: center;
+  }
+  .exchange-feature-info {
+    padding: 22px;
+  }
+  .exchange-feature-info h2 {
+    font-size: 27px;
+  }
+  .exchange-feature-info .exchange-kicker {
+    font-size: 9px;
+    margin-bottom: 10px;
+  }
+  .exchange-feature-info p {
+    font-size: 12px;
+  }
+  .exchange-feature-bid {
+    padding: 17px;
+    margin: 17px 0 0;
+    gap: 16px;
+  }
+  .exchange-feature-bid strong {
+    font-size: 31px;
+  }
+  .exchange-feature-bid small {
+    display: block;
+    margin: 5px 0 0;
+  }
+  .exchange-feature-bid .exchange-feature-clock strong {
+    font-size: 15px;
+  }
+  .featured-bottom {
+    font-size: 10px;
+  }
+  .exchange-closing {
+    padding: 21px;
+  }
+  .closing-lot {
+    padding: 16px 0;
+  }
+  .closing-lot img {
+    width: 94px;
+    height: 76px;
+  }
+  .closing-lot h3 {
+    font-size: 12px;
+  }
+  .closing-lot strong {
+    font-size: 19px;
+  }
+  .exchange-search {
+    width: calc(100% - 36px);
+    padding: 19px !important;
+  }
+  .exchange-body-types {
+    gap: 7px 19px;
+  }
+  .exchange-body-types > a {
+    font-size: 10px;
+  }
+  .brand-auto .market-grid {
+    gap: 25px;
+  }
+  .brand-auto .auction-card h3 {
+    font-size: 21px;
+    min-height: 0;
+  }
+  .brand-auto .auction-card-body {
+    padding: 21px;
+  }
+  .brand-auto .auction-specs {
+    font-size: 12px;
+    min-height: 0;
+  }
+  .brand-auto .auction-reference {
+    font-size: 9px;
+  }
+  .exchange-guide {
+    gap: 15px;
+  }
+  .exchange-guide article {
+    padding: 17px;
+  }
+  .exchange-guide article p {
+    font-size: 12px;
+  }
+  .exchange-guide article h3 {
+    font-size: 16px;
+  }
+  .exchange-guide-intro {
+    margin-bottom: 13px;
+  }
+}
+.featured-specifications {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 17px 25px;
+  margin: 25px 0 6px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e9ee;
+}
+.featured-specifications dt {
+  font-size: 9px;
+  color: #7a8796;
+  margin-bottom: 5px;
+}
+.featured-specifications dd {
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 600;
+  margin: 0;
+  color: #334358;
+}
+.exchange-feature-info {
+  gap: 6px;
+}
+.featured-specifications > div {
+  min-width: 0;
+}
+.exchange-feature-info h2 {
+  max-width: 350px;
+}
+@media (max-width: 1100px) {
+  .featured-specifications {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 17px;
+    padding-top: 15px;
+    gap: 15px;
+  }
+  .featured-specifications dd {
+    font-size: 10px;
+  }
+  .exchange-feature-info h2 {
+    max-width: none;
+  }
+}
+@media (max-width: 620px) {
+  .featured-specifications {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .featured-specifications dd {
+    font-size: 12px;
+  }
+}
