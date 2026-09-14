@@ -1,0 +1,1223 @@
+/* AutoBlock: an independent automotive editorial system. */
+body.brand-auto {
+  --ink: #162925;
+  --accent: #dbf075;
+  --accent-strong: #d4e975;
+  --muted: #606863;
+  --line: #d9dcd4;
+  --paper: #f8f8f2;
+  --navy: #162925;
+  --blue: #203c34;
+  --font-body: "Inter", Arial, sans-serif;
+  --font-display: "Inter", Arial, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+.brand-auto .wrap {
+  max-width: 1440px;
+  width: calc(100% - 96px);
+}
+.brand-auto h1,
+.brand-auto h2,
+.brand-auto h3 {
+  font-family: var(--font-display);
+  text-transform: none;
+  letter-spacing: -0.05em;
+}
+.brand-auto h2 {
+  font-size: 44px;
+  line-height: 1.12;
+  font-weight: 500;
+}
+.brand-auto h2 em,
+.drive-cover h1 em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+.drive-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.drive-header {
+  position: sticky;
+  top: 0;
+  background: #f8f8f2;
+  border: 0;
+  z-index: 80;
+  box-shadow: none;
+}
+.drive-nav {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  min-height: 88px;
+}
+.drive-logo {
+  display: inline-flex;
+  align-items: center;
+  font:
+    500 32px/1 "Inter",
+    sans-serif;
+  letter-spacing: -2px;
+  text-decoration: none;
+  color: var(--ink);
+  flex-shrink: 0;
+}
+.drive-logo b {
+  font-weight: 800;
+}
+.drive-logo > span {
+  font-size: 26px;
+  margin-right: 9px;
+  color: #597148;
+}
+.drive-logo sup {
+  font: 10px/1 Arial;
+  align-self: flex-start;
+  letter-spacing: 0;
+  margin: 0 0 0 4px;
+}
+.drive-header .main-nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin: auto;
+  position: static;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+.drive-header .main-nav > a {
+  padding: 12px 0;
+  font:
+    500 12px/1.3 "Inter",
+    sans-serif;
+  text-transform: none;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.drive-header .main-nav > a:after {
+  display: none;
+}
+.drive-header a:hover {
+  color: #57713e;
+}
+.drive-count {
+  font-size: 10px;
+  background: #e5e9dc;
+  border-radius: 20px;
+  padding: 3px 6px;
+  margin-left: 4px;
+}
+.drive-account {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.drive-register {
+  background: var(--ink);
+  color: #fff !important;
+  border-radius: 28px;
+  padding: 14px 20px;
+}
+.drive-header .menu-button {
+  display: none;
+}
+.drive-cover {
+  height: 650px;
+  min-height: 550px;
+  position: relative;
+  color: #fff;
+  background: #20362c;
+  overflow: hidden;
+}
+.drive-cover-photo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 56%;
+}
+.drive-cover:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 20, 17, 0.72),
+      rgba(5, 20, 17, 0.2) 66%,
+      transparent
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.3), transparent 40%);
+}
+.drive-cover-copy {
+  position: relative;
+  z-index: 1;
+  padding-top: 90px;
+}
+.drive-cover .drive-label {
+  color: #eef6d6;
+}
+.drive-cover h1 {
+  font-size: clamp(54px, 5.8vw, 88px);
+  font-weight: 500;
+  line-height: 1.04;
+  color: #fff;
+  margin: 0 0 24px;
+  max-width: 850px;
+  letter-spacing: -0.06em;
+}
+.drive-cover h1 em {
+  color: #e8f4b8;
+}
+.drive-cover p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #f2f2ee;
+  margin: 0 0 30px;
+}
+.drive-pill {
+  display: inline-flex;
+  justify-content: space-between;
+  gap: 36px;
+  align-items: center;
+  min-height: 50px;
+  padding: 13px 24px;
+  border-radius: 32px;
+  background: var(--accent);
+  color: #19291c;
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.drive-pill:hover {
+  background: #edff9c;
+  transform: translateY(-2px);
+}
+.drive-pill span {
+  font-size: 20px;
+}
+.drive-pill-dark {
+  background: var(--ink);
+  color: #fff;
+}
+.drive-pill-dark:hover {
+  background: #365348;
+}
+.drive-cover-foot {
+  position: absolute;
+  z-index: 1;
+  bottom: 44px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #eff2e8;
+}
+.drive-cover-foot a {
+  letter-spacing: 0;
+  color: inherit;
+}
+.drive-finder {
+  position: relative;
+  z-index: 2;
+  margin-top: -22px;
+  background: #fff;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border-radius: 10px;
+  box-shadow: 0 12px 40px #142b2110;
+  border: 1px solid #e4e7df;
+}
+.drive-finder-intro {
+  min-width: 175px;
+}
+.drive-finder .drive-label {
+  font-size: 9px;
+  margin-bottom: 8px;
+  color: #687262;
+}
+.drive-finder strong {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+}
+.drive-finder .auction-search {
+  margin: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border: 0;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr auto;
+  gap: 8px;
+}
+.drive-finder .auction-search > div {
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  min-height: 48px;
+  padding: 0 12px;
+}
+.drive-finder input,
+.drive-finder select {
+  font-size: 12px;
+  background: #fff !important;
+  color: var(--ink);
+  border: 0 !important;
+  min-width: 0;
+  width: 100%;
+  padding: 0;
+  box-shadow: none !important;
+}
+.drive-finder .search-query {
+  gap: 8px;
+}
+.drive-finder .search-query svg {
+  width: 16px;
+  flex-shrink: 0;
+}
+.brand-auto .action-dark {
+  background: var(--ink);
+  color: #fff;
+}
+.drive-finder .action {
+  border-radius: 5px;
+  font-size: 12px;
+  min-height: 48px;
+  white-space: nowrap;
+}
+.drive-categories {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--line);
+}
+.drive-categories > a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  min-height: 44px;
+}
+.drive-categories svg {
+  width: 22px;
+  height: 22px;
+}
+.drive-categories small {
+  font-size: 10px;
+  color: #737c71;
+}
+.drive-category-all {
+  font-weight: 650;
+}
+.brand-auto .auction-market {
+  background: var(--paper);
+  padding: 76px 0 50px;
+}
+.brand-auto .market-title {
+  align-items: end;
+  margin-bottom: 28px;
+}
+.brand-auto .market-title h2 {
+  font-size: 44px;
+  font-weight: 500;
+}
+.brand-auto .link-arrow {
+  font-size: 12px;
+  color: var(--ink);
+}
+.brand-auto .auction-toolbar {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 18px;
+  margin-bottom: 28px;
+}
+.brand-auto .auction-tabs {
+  gap: 5px;
+}
+.brand-auto .auction-tabs button {
+  border-radius: 24px;
+  font-size: 12px;
+  font-weight: 500;
+  min-height: 42px;
+  padding: 9px 18px;
+  border-color: transparent;
+  background: transparent;
+}
+.brand-auto .auction-tabs button.is-active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+.brand-auto .auction-tabs button span {
+  background: #ffffff20;
+  color: inherit;
+}
+.brand-auto .sync-label {
+  font-size: 10px;
+}
+.brand-auto .market-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px 25px;
+}
+.brand-auto .auction-card {
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+}
+.brand-auto .auction-card:hover {
+  box-shadow: none;
+  transform: none;
+}
+.brand-auto .auction-card-image {
+  aspect-ratio: 1.52;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.brand-auto .auction-card-image img {
+  transition: transform 0.4s;
+}
+.brand-auto .auction-card:hover .auction-card-image img {
+  transform: scale(1.035);
+}
+.brand-auto .auction-state {
+  left: 12px;
+  top: 12px;
+  background: #fff;
+  color: var(--ink);
+  border-radius: 5px;
+  font-size: 10px;
+  padding: 6px 9px;
+  gap: 6px;
+}
+.brand-auto .save-auction {
+  right: 12px;
+  top: 12px;
+  background: #ffffffed;
+  color: var(--ink);
+  width: 36px;
+  height: 36px;
+}
+.brand-auto .auction-countdown {
+  left: 12px;
+  bottom: 12px;
+  right: auto;
+  background: #162925ed;
+  border-radius: 5px;
+  min-height: 30px;
+  padding: 7px 10px;
+  font-size: 10px;
+  justify-content: start;
+}
+.brand-auto .auction-card-body {
+  padding: 18px 0 0;
+}
+.brand-auto .auction-meta {
+  font-size: 10px;
+  color: #66705f;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.brand-auto .auction-meta > span {
+  color: #416028;
+  background: #e8eddf;
+}
+.brand-auto .auction-card h3 {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.4;
+  min-height: 54px;
+  margin: 0 0 9px;
+}
+.brand-auto .auction-specs {
+  font-size: 11px;
+  line-height: 1.7;
+  color: #697063;
+  min-height: 38px;
+}
+.brand-auto .auction-price-row {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  margin-top: 14px;
+}
+.brand-auto .auction-price-row strong {
+  font-size: 25px;
+  letter-spacing: -0.06em;
+  font-weight: 600;
+}
+.brand-auto .price-caption {
+  font-size: 10px;
+}
+.brand-auto .bid-total {
+  font-size: 10px;
+}
+.brand-auto .action-bid {
+  border: 1px solid #b6bfb0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 12px;
+  border-radius: 26px;
+  min-height: 44px;
+  margin-top: 14px;
+}
+.brand-auto .action-bid:hover {
+  background: var(--ink);
+  color: white;
+}
+.brand-auto .buy-outright {
+  border: 0;
+  margin: 0;
+  padding-top: 12px;
+  font-size: 10px;
+  justify-content: space-between;
+}
+.brand-auto .market-bottom {
+  margin-top: 30px;
+}
+.brand-auto .market-bottom p {
+  font-size: 10px;
+}
+.brand-auto .action-outline {
+  border-radius: 30px;
+  border: 1px solid #9ba58f;
+  font-size: 12px;
+  color: var(--ink);
+}
+.drive-feature {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  padding: 50px 0 100px;
+  gap: 70px;
+  align-items: center;
+}
+.drive-feature-photo {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.drive-feature-photo img {
+  width: 100%;
+  aspect-ratio: 1.18;
+  object-fit: cover;
+}
+.drive-feature-photo > span {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  padding: 8px 13px;
+  background: #fff;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  border-radius: 4px;
+}
+.drive-feature-copy h2 {
+  margin: 0 0 28px;
+}
+.drive-feature-copy h3 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.drive-feature-copy p {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--muted);
+  max-width: 390px;
+}
+.drive-feature-spec {
+  display: flex;
+  gap: 50px;
+  margin: 25px 0 30px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.drive-feature-spec strong {
+  display: block;
+  font-weight: 500;
+  font-size: 23px;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+.drive-confidence {
+  background: #183b30;
+  color: #f6f6ed;
+  padding: 80px 0;
+}
+.drive-confidence-heading {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+.drive-confidence-heading .drive-label {
+  color: #cee593;
+  padding-top: 10px;
+}
+.drive-confidence h2 {
+  color: #f6f6ed;
+  margin: 0;
+}
+.drive-confidence h2 em {
+  color: #dbeaac;
+}
+.drive-confidence-heading > a {
+  font-size: 12px;
+  color: #fff;
+  margin-top: 20px;
+  text-align: right;
+}
+.drive-confidence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 45px;
+  margin: 65px 0 50px;
+}
+.drive-confidence-grid article {
+  border-top: 1px solid #ffffff40;
+  padding-top: 24px;
+}
+.drive-confidence-grid article > span {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #cfdea9;
+}
+.drive-confidence-grid h3 {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 500;
+  margin: 20px 0 14px;
+}
+.drive-confidence-grid p {
+  font-size: 13px;
+  color: #c4d0c6;
+  line-height: 1.85;
+}
+.drive-promise {
+  padding-top: 30px;
+  border-top: 1px solid #ffffff30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+.drive-promise > span {
+  font-size: 11px;
+  color: #cfdbce;
+}
+.drive-promise strong {
+  display: block;
+  font-size: 28px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 5px;
+}
+.drive-promise > a {
+  font-size: 12px;
+  color: #e4f4b1;
+}
+.drive-help {
+  padding: 90px 0;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+}
+.drive-help h2 {
+  margin: 0 0 20px;
+}
+.drive-help p {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+.dealer-questions details {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 0;
+  background: none;
+}
+.dealer-questions summary {
+  cursor: pointer;
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  font-size: 16px;
+  font-weight: 500;
+  list-style: none;
+}
+.dealer-questions summary::-webkit-details-marker {
+  display: none;
+}
+.dealer-questions summary > span {
+  font-size: 22px;
+  font-weight: 300;
+}
+.dealer-questions details[open] summary > span {
+  transform: rotate(45deg);
+}
+.dealer-questions details p {
+  margin: 0;
+  padding: 0 35px 24px 0;
+  font-size: 13px;
+}
+.brand-auto .newsletter-section {
+  background: #e8edd9;
+  color: var(--ink);
+  padding: 64px 0;
+}
+.brand-auto .newsletter-inner {
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+}
+.brand-auto .newsletter-section h2 {
+  font-size: 36px;
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.2;
+}
+.brand-auto .newsletter-section p {
+  font-size: 13px;
+  color: #5c675a;
+}
+.brand-auto .newsletter-section .section-kicker {
+  font-size: 10px;
+  color: #5c675a;
+}
+.brand-auto .newsletter-section label {
+  font-size: 11px;
+  color: var(--ink);
+}
+.brand-auto .newsletter-section input {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid #a6b095;
+  border-radius: 4px;
+  min-height: 46px;
+  font-size: 12px;
+}
+.brand-auto .newsletter-section input::placeholder {
+  color: #606b59;
+}
+.brand-auto .newsletter-section button {
+  background: var(--ink);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.drive-footer {
+  background: var(--paper);
+  padding: 60px 0 22px;
+}
+.drive-footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+.drive-footer-top p {
+  font:
+    italic 22px Georgia,
+    serif;
+}
+.drive-footer-top > a:last-child {
+  font-size: 14px;
+}
+.drive-footer-links {
+  display: flex;
+  gap: 35px;
+  justify-content: center;
+  padding: 45px 0;
+  font-size: 12px;
+}
+.drive-footer-bottom {
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  padding-top: 22px;
+  font-size: 10px;
+  color: var(--muted);
+}
+.drive-footer-bottom > span:first-child {
+  margin-right: auto;
+}
+.brand-auto .page-banner {
+  background: #e8edd9;
+}
+.brand-auto .page-banner h1 {
+  font-weight: 500;
+  letter-spacing: -0.06em;
+}
+.brand-auto .inventory-shell .auction-grid {
+  gap: 30px 22px;
+}
+@media (min-width: 1600px) {
+  .drive-cover-copy {
+    padding-top: 110px;
+  }
+}
+@media (max-width: 1150px) {
+  .brand-auto .wrap {
+    width: calc(100% - 56px);
+  }
+  .drive-nav {
+    gap: 22px;
+  }
+  .drive-header .main-nav {
+    gap: 16px;
+  }
+  .drive-header .main-nav > a {
+    font-size: 11px;
+  }
+  .drive-account {
+    gap: 12px;
+  }
+  .drive-account > a:first-child {
+    display: none;
+  }
+  .drive-logo {
+    font-size: 28px;
+  }
+  .drive-finder {
+    display: block;
+  }
+  .drive-finder-intro {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  .drive-finder .drive-label {
+    margin: 0;
+  }
+  .drive-categories {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+  .drive-feature {
+    gap: 40px;
+  }
+  .drive-confidence-heading {
+    grid-template-columns: 1fr 2fr;
+  }
+  .drive-confidence-heading > a {
+    display: none;
+  }
+}
+@media (max-width: 850px) {
+  .drive-header .main-nav > a:nth-child(4),
+  .drive-header .main-nav > a:nth-child(5) {
+    display: none;
+  }
+  .drive-cover {
+    height: 610px;
+  }
+  .drive-cover h1 {
+    font-size: 65px;
+  }
+  .drive-cover-copy {
+    padding-top: 85px;
+  }
+  .drive-cover-photo {
+    object-position: 65% center;
+  }
+  .brand-auto .market-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .drive-feature {
+    gap: 30px;
+  }
+  .brand-auto h2,
+  .brand-auto .market-title h2 {
+    font-size: 36px;
+  }
+  .drive-confidence-grid {
+    gap: 25px;
+  }
+  .drive-confidence-grid h3 {
+    font-size: 21px;
+  }
+  .drive-help {
+    gap: 40px;
+  }
+  .brand-auto .newsletter-inner {
+    gap: 35px;
+  }
+  .drive-footer-top {
+    flex-wrap: wrap;
+  }
+  .drive-footer-links {
+    gap: 22px;
+    justify-content: start;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 620px) {
+  .brand-auto .wrap {
+    width: calc(100% - 36px);
+  }
+  .drive-nav {
+    min-height: 74px;
+    gap: 15px;
+  }
+  .drive-logo {
+    font-size: 27px;
+  }
+  .drive-logo > span {
+    font-size: 21px;
+    margin-right: 6px;
+  }
+  .drive-account {
+    margin-left: auto;
+  }
+  .drive-register {
+    padding: 11px 13px;
+    font-size: 10px;
+  }
+  .drive-header .menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    background: transparent;
+    border-radius: 50%;
+  }
+  .drive-header .main-nav {
+    display: none;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 20px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 15px 25px #16292515;
+  }
+  .drive-header .main-nav.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .drive-header .main-nav > a,
+  .drive-header .main-nav > a:nth-child(4),
+  .drive-header .main-nav > a:nth-child(5) {
+    display: block;
+    font-size: 15px;
+    padding: 16px;
+  }
+  .drive-cover {
+    height: 575px;
+    min-height: 0;
+  }
+  .drive-cover-copy {
+    padding-top: 64px;
+  }
+  .drive-cover h1 {
+    font-size: 48px;
+    line-height: 1.08;
+    max-width: 390px;
+  }
+  .drive-cover p {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+  .drive-cover-photo {
+    object-position: 62% center;
+  }
+  .drive-cover:after {
+    background: linear-gradient(90deg, #10251dde, #10251d45);
+  }
+  .drive-label {
+    font-size: 9px;
+    margin-bottom: 20px;
+  }
+  .drive-cover-foot {
+    bottom: 38px;
+    font-size: 8px;
+    letter-spacing: 0.04em;
+  }
+  .drive-cover-foot > a {
+    font-size: 8px;
+  }
+  .drive-finder {
+    margin-top: -14px;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  .drive-finder-intro {
+    display: block;
+    margin-bottom: 15px;
+  }
+  .drive-finder .drive-label {
+    margin-bottom: 8px;
+  }
+  .drive-finder .auction-search {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .drive-finder .search-query {
+    grid-column: 1/-1;
+  }
+  .drive-finder .auction-search > .action {
+    grid-column: 1/-1;
+  }
+  .drive-finder .auction-search > div {
+    padding: 0 10px;
+  }
+  .drive-finder .auction-search select {
+    height: 46px;
+  }
+  .drive-finder strong {
+    font-size: 23px;
+  }
+  .drive-categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 15px;
+    padding: 24px 0;
+  }
+  .drive-categories .drive-category-all {
+    grid-column: 1/-1;
+  }
+  .drive-categories > a {
+    font-size: 12px;
+  }
+  .brand-auto .auction-market {
+    padding: 48px 0 15px;
+  }
+  .brand-auto .market-title {
+    display: block;
+    margin-bottom: 22px;
+  }
+  .brand-auto .market-title h2 {
+    font-size: 35px;
+    margin-bottom: 18px;
+  }
+  .brand-auto .auction-toolbar {
+    display: block;
+  }
+  .brand-auto .auction-tabs {
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+  .brand-auto .auction-tabs button {
+    font-size: 11px;
+    padding: 9px 12px;
+  }
+  .brand-auto .sync-label {
+    display: block;
+    margin-top: 14px;
+  }
+  .brand-auto .market-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .brand-auto .auction-card-image {
+    aspect-ratio: 1.5;
+  }
+  .brand-auto .auction-card h3 {
+    min-height: 0;
+    font-size: 21px;
+  }
+  .brand-auto .auction-specs {
+    min-height: 0;
+    font-size: 12px;
+  }
+  .brand-auto .auction-price-row strong {
+    font-size: 27px;
+  }
+  .brand-auto .auction-card-body {
+    padding-top: 16px;
+  }
+  .brand-auto .buy-outright {
+    font-size: 11px;
+  }
+  .brand-auto .market-bottom {
+    display: block;
+  }
+  .brand-auto .market-bottom .action {
+    margin-top: 18px;
+  }
+  .drive-feature {
+    grid-template-columns: 1fr;
+    padding: 35px 0 55px;
+    gap: 28px;
+  }
+  .drive-feature-photo img {
+    aspect-ratio: 1.35;
+  }
+  .drive-feature-copy h2 {
+    font-size: 39px;
+    margin-bottom: 20px;
+  }
+  .drive-feature-copy p {
+    max-width: none;
+  }
+  .drive-feature-spec {
+    gap: 60px;
+  }
+  .drive-confidence {
+    padding: 55px 0;
+  }
+  .drive-confidence-heading {
+    display: block;
+  }
+  .drive-confidence-heading h2 {
+    font-size: 40px;
+  }
+  .drive-confidence-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin: 35px 0;
+  }
+  .drive-confidence-grid article {
+    padding-top: 22px;
+  }
+  .drive-confidence-grid h3 {
+    font-size: 25px;
+    margin-top: 16px;
+  }
+  .drive-confidence-grid p {
+    font-size: 14px;
+  }
+  .drive-promise {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+  .drive-promise > a {
+    line-height: 1.8;
+  }
+  .drive-promise strong {
+    font-size: 25px;
+  }
+  .drive-help {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 55px 0;
+  }
+  .drive-help h2 {
+    font-size: 39px;
+  }
+  .dealer-questions summary {
+    font-size: 15px;
+  }
+  .brand-auto .newsletter-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .brand-auto .newsletter-section h2 {
+    font-size: 32px;
+  }
+  .brand-auto .subscribe-row {
+    display: flex;
+  }
+  .brand-auto .newsletter-section button {
+    padding: 10px;
+    font-size: 10px;
+  }
+  .drive-footer {
+    padding-top: 38px;
+  }
+  .drive-footer-top {
+    display: block;
+  }
+  .drive-footer-top p {
+    font-size: 21px;
+    margin: 20px 0;
+  }
+  .drive-footer-top > a:last-child {
+    font-size: 14px;
+  }
+  .drive-footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 32px 0;
+    gap: 23px;
+  }
+  .drive-footer-bottom {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+  .drive-footer-bottom > span:first-child {
+    width: 100%;
+  }
+  .drive-footer-bottom > span:nth-child(2) {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .drive-pill,
+  .brand-auto .auction-card-image img {
+    transition: none;
+  }
+  .drive-pill:hover,
+  .brand-auto .auction-card:hover .auction-card-image img {
+    transform: none;
+  }
+}
+.drive-account > a:first-child {
+  color: var(--ink);
+}
+.drive-header .menu-button {
+  min-width: 44px;
+  min-height: 44px;
+}
+.drive-cover,
+.drive-feature,
+.drive-confidence,
+.drive-help {
+  scroll-margin-top: 95px;
+}
+
+.drive-header .main-nav>a.drive-mobile-login {display:none}
+@media(max-width:620px){.drive-header .main-nav>a.drive-mobile-login{display:block}}
+body.brand-auto {
+  --brand: #244d3d;
+  --brand-ink: #fff;
+  --brand-deep: #16382b;
+  --hot: #244d3d;
+  --accent: #244d3d;
+  --accent-deep: #16382b;
+  --accent-soft: #e8edd9;
+  --accent-ink: #244d3d;
+  --accent-hot: #244d3d;
+  --accent-light: #dbeaac;
+  --night: #183b30;
+  --night-soft: #244d3d;
+  --blue-deep: #16382b;
+  --blue-soft: #e8edd9;
+  --surface-alt: #eff1e8;
+}
+.drive-pill {background:#dbf075}
+.drive-pill-dark {background:var(--ink)}
