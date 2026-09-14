@@ -14,7 +14,8 @@
     "seed": "node db/seed.js",
     "seed:images": "node db/fetch-images.js",
     "setup": "npm run migrate && npm run seed:images && npm run seed",
-    "reset": "node db/reset.js && npm run setup"
+    "reset": "node db/reset.js && npm run setup",
+    "test": "node --test tests/*.test.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

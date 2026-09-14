@@ -4,7 +4,7 @@
     <span><%= brand.contact.hoursShort.toUpperCase() %></span>
     <span class="hide-sm"><%= brand.address.oneLine.toUpperCase() %></span>
     <span class="r">
-      <span class="rating">★ 4.9 / 5 VERIFIED DEALER</span>
+      <span class="rating">BID ONLINE · BUY OUTRIGHT</span>
       <span class="hide-sm"><b><%= brand.contact.phone %></b></span>
       <a href="mailto:<%= brand.contact.email %>" class="hide-sm"><%= brand.contact.email %></a>
     </span>
@@ -23,7 +23,7 @@
       </span>
     </a>
 
-    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" data-nav-toggle>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-controls="site-nav" aria-expanded="false" data-nav-toggle>
       <%- include('./icons', { icon: 'menu' }) %>
     </button>
 
@@ -49,7 +49,6 @@
 
     <div class="header-actions">
       <span class="pill-live"><span class="dot dot-pulse"></span> <%= auctionCount %> LIVE</span>
-      <span class="top-clock hide-sm" data-clock><%= dates.formatDateTime(new Date().toISOString()) %></span>
 
       <% if (currentUser) { %>
         <div class="usermenu" data-usermenu>
