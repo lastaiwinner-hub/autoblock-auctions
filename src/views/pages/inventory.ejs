@@ -237,9 +237,9 @@
         <% } %>
 
         <% if (listings.length) { %>
-          <div class="board-grid">
+          <div class="auction-grid inventory-auctions">
             <% listings.forEach(function (lot) { %>
-              <%- include('../partials/lot-card', { lot: lot }) %>
+              <%- include('../partials/auction-card', { lot: lot }) %>
             <% }); %>
           </div>
 
