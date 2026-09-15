@@ -52,35 +52,12 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
   </div>
 </section>
 
-<section class="lot-activity wrap" id="history" aria-labelledby="activity-title"><div class="activity-heading"><div><span class="activity-eyebrow"><span class="activity-live-dot"></span><%= live ? 'AUCTION IN PROGRESS' : 'AUCTION ACTIVITY' %></span><h2 id="activity-title">Bidding activity <span data-activity-count><%= history.length %> recent bids</span></h2></div><div class="activity-summary"><span>Minimum next bid<strong data-live-minimum><%= money.format(minimum) %></strong></span><a href="#bidding" class="btn btn-primary">Go to bidding ↗</a></div></div><div class="activity-feed" data-live-history tabindex="0" aria-label="Recent bids, newest first"><% history.forEach(function(b,i){ %><div class="bid-row <%= currentUser && b.user_id === currentUser.id ? 'is-you' : '' %>"><div><div class="small" style="font-weight:600"><%= maskBidder(b) %><% if(currentUser && b.user_id === currentUser.id){ %> <span class="badge badge-accent">You</span><% } %><% if(b.is_auto){ %> <span class="badge badge-muted">Auto</span><% } %></div><div class="xsmall muted"><%= dates.relative(b.created_at) %></div></div><div class="amt mono"><%= money.format(b.amount) %></div></div><% }); %><% if(!history.length){ %><p class="activity-empty">No bids yet. The opening bid is <%= money.format(listing.starting_bid) %>.</p><% } %></div><div class="activity-foot"><span>Newest bids first · Up to 50 recorded bids · Bidder names masked</span><span data-activity-sync>Updates every 12 seconds</span></div>          <% if (previousCycles.length) { %>
-            <details class="mt-3">
-              <summary class="small" style="cursor:pointer;font-weight:600">Previous auction cycles (<%= previousCycles.length %>)</summary>
-              <div class="mt-2">
-                <% previousCycles.forEach(function (c) { %>
-                  <div class="bid-row">
-                    <div>
-                      <div class="small" style="font-weight:600">Cycle #<%= c.cycle_number %></div>
-                      <div class="xsmall muted">
-                        Closed <%= dates.formatDateTime(c.closed_at) %>
-                        <%= c.winning_user_id ? '· won' : '· no sale' %>
-                      </div>
-                    </div>
-                    <div class="amt mono"><%= c.final_amount ? money.format(c.final_amount) : '—' %></div>
-                  </div>
-                <% }); %>
-              </div>
-              <p class="xsmall muted mt-2">
-                We hold stock, so a vehicle stays on sale after a cycle is won —
-                each cycle above concluded with its own buyer.
-              </p>
-            </details>
-          <% } %>
-</section>
+
 <section class="section">
   <div class="wrap">
     <div class="lot-layout">
-      <!-- Gallery + details -->
-      <div>
+      <!-- Product photography -->
+      <div class="lot-gallery">
         <div data-gallery>
           <div class="gallery-main">
             <% if (images.length) { %>
@@ -129,126 +106,6 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
             <span class="tag"><%= listing.quantity %> in stock — we keep selling after each cycle</span>
           <% } %>
         </div>
-
-        <div class="promise-strip mt-3">
-          <div>
-            <div class="n"><%= brand.terms.inspectionDays %></div>
-            <div class="l">Day money back</div>
-          </div>
-          <div>
-            <div class="n">US</div>
-            <div class="l">Nationwide delivery</div>
-          </div>
-          <div>
-            <div class="n"><%= listing.title_status || 'Clean' %></div>
-            <div class="l">Title included</div>
-          </div>
-          <div>
-            <div class="n">0%</div>
-            <div class="l">Buyer premium</div>
-          </div>
-        </div>
-
-        <!-- Buyers ask for a walkthrough by name, so the slot is always here
-             even before the video has been filmed. -->
-        <dialog class="modal" data-video-dialog>
-          <div class="modal-head">
-            <div>
-              <h2 class="h3">Vehicle video</h2>
-              <div class="mono xsmall muted" style="margin-top:4px"><%= listing.title.toUpperCase() %></div>
-            </div>
-            <button type="button" class="modal-close" data-video-close aria-label="Close">×</button>
-          </div>
-          <div class="modal-body center">
-            <h3 class="h4">No video yet</h3>
-            <p class="small muted mt-1" style="max-width:44ch;margin-inline:auto">
-              Ask us and we will film a walkthrough — cold start, panel-by-panel
-              exterior, interior and anything called out in the description.
-            </p>
-            <a href="/contact?subject=<%= encodeURIComponent('Video request: ' + listing.title) %>"
-               class="btn btn-primary mt-3 btn-inline">Request a walkthrough</a>
-          </div>
-        </dialog>
-
-        <!-- Specifications -->
-        <h2 class="h3 mt-5 mb-2">Specifications</h2>
-        <table class="spec-table">
-          <tbody>
-            <tr><th>Year</th><td><%= listing.year || '—' %></td></tr>
-            <tr><th>Manufacturer</th><td><%= listing.make || '—' %></td></tr>
-            <tr><th>Model</th><td><%= listing.model || '—' %></td></tr>
-            <% if (listing.trim) { %><tr><th>Trim</th><td><%= listing.trim %></td></tr><% } %>
-            <tr><th>Odometer</th><td><%= meterLabel %></td></tr>
-            <% if (listing.body_style) { %><tr><th>Body style</th><td><%= listing.body_style %></td></tr><% } %>
-            <% if (listing.engine_type) { %><tr><th>Engine</th><td><%= listing.engine_type %></td></tr><% } %>
-            <% if (listing.engine_hp) { %><tr><th>Horsepower</th><td><%= listing.engine_hp %> HP</td></tr><% } %>
-            <% if (listing.transmission) { %><tr><th>Transmission</th><td><%= listing.transmission %></td></tr><% } %>
-            <% if (listing.drivetrain) { %><tr><th>Drivetrain</th><td><%= listing.drivetrain %></td></tr><% } %>
-            <% if (listing.fuel_type) { %><tr><th>Fuel type</th><td><%= listing.fuel_type %></td></tr><% } %>
-            <% if (listing.exterior_color) { %><tr><th>Exterior colour</th><td><%= listing.exterior_color %></td></tr><% } %>
-            <% if (listing.interior_color && listing.interior_color !== 'n/a') { %><tr><th>Interior</th><td><%= listing.interior_color %></td></tr><% } %>
-            <% if (listing.doors) { %><tr><th>Doors / seats</th><td><%= listing.doors %> doors · <%= listing.seats %> seats</td></tr><% } %>
-            <tr><th>VIN</th><td class="mono"><%= listing.vin || 'On request' %></td></tr>
-            <tr>
-              <th>Title status</th>
-              <td>
-                <%= listing.title_status || 'Clean' %>
-                <% if ((listing.title_status || 'Clean') === 'Clean') { %>
-                  <span class="badge badge-success" style="margin-left:6px">Clean title</span>
-                <% } else { %>
-                  <span class="badge badge-warn" style="margin-left:6px"><%= listing.title_status %></span>
-                <% } %>
-              </td>
-            </tr>
-            <tr><th>Condition</th><td style="text-transform:capitalize"><%= listing.condition %></td></tr>
-            <tr><th>Stock number</th><td><%= listing.stock_number || '—' %></td></tr>
-            <tr><th>Location</th><td><%= listing.location_city %>, <%= listing.location_state %> <%= listing.location_zip %></td></tr>
-            <tr><th>Category</th><td><%= listing.category_name || '—' %></td></tr>
-          </tbody>
-        </table>
-
-        <% if (listing.specs && listing.specs.length) { %>
-          <% listing.specs.forEach(function (group) { %>
-            <h3 class="h4 mt-4 mb-2"><%= group.group %></h3>
-            <table class="spec-table">
-              <tbody>
-                <% (group.items || []).forEach(function (item) { %>
-                  <tr><th><%= item.label %></th><td><%= item.value %></td></tr>
-                <% }); %>
-              </tbody>
-            </table>
-          <% }); %>
-        <% } %>
-
-        <!-- Overview -->
-        <% if (listing.description) { %>
-          <h2 class="h3 mt-5 mb-2">Vehicle overview</h2>
-          <div class="card card-pad">
-            <p style="line-height:1.75;white-space:pre-line"><%= listing.description %></p>
-
-            <% if (listing.highlights && listing.highlights.length) { %>
-              <ul class="stack mt-3" style="--stack-gap:10px">
-                <% listing.highlights.forEach(function (h) { %>
-                  <li class="row" style="gap:10px;align-items:flex-start;flex-wrap:nowrap">
-                    <span style="color:var(--success);flex:none;margin-top:3px">
-                      <%- include('../partials/icons', { icon: 'check', strokeWidth: 2.4 }) %>
-                    </span>
-                    <span class="small"><%= h %></span>
-                  </li>
-                <% }); %>
-              </ul>
-            <% } %>
-
-            <div class="alert alert-warning mt-3">
-              <div>
-                <strong>Every purchase includes a <%= brand.terms.inspectionDays %>-day inspection period after delivery.</strong>
-                If the vehicle does not match its description we arrange collection at our
-                cost and refund you in full within <%= brand.terms.refundWindowHours %> hours.
-                A <%= brand.terms.warrantyMonths %>-month warranty follows the inspection window.
-              </div>
-            </div>
-          </div>
-        <% } %>
 
       </div>
 
@@ -408,6 +265,31 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
           </div>
         </div>
 
+<section class="lot-activity" id="history" aria-labelledby="activity-title"><div class="activity-heading"><h2 id="activity-title">Recent bids</h2><span data-activity-count><%= history.length %> shown</span></div><div class="activity-feed" data-live-history tabindex="0" aria-label="Recent bids, newest first"><% history.forEach(function(b,i){ %><div class="bid-row <%= currentUser && b.user_id === currentUser.id ? 'is-you' : '' %>"><div><div class="small" style="font-weight:600"><%= maskBidder(b) %><% if(currentUser && b.user_id === currentUser.id){ %> <span class="badge badge-accent">You</span><% } %><% if(b.is_auto){ %> <span class="badge badge-muted">Auto</span><% } %></div><div class="xsmall muted"><%= dates.relative(b.created_at) %></div></div><div class="amt mono"><%= money.format(b.amount) %></div></div><% }); %><% if(!history.length){ %><p class="activity-empty">No bids yet. The opening bid is <%= money.format(listing.starting_bid) %>.</p><% } %></div><div class="activity-foot"><span>Newest first · Bidder names masked</span><span data-activity-sync>Updates every 12 seconds</span></div>          <% if (previousCycles.length) { %>
+            <details class="mt-3">
+              <summary class="small" style="cursor:pointer;font-weight:600">Previous auction cycles (<%= previousCycles.length %>)</summary>
+              <div class="mt-2">
+                <% previousCycles.forEach(function (c) { %>
+                  <div class="bid-row">
+                    <div>
+                      <div class="small" style="font-weight:600">Cycle #<%= c.cycle_number %></div>
+                      <div class="xsmall muted">
+                        Closed <%= dates.formatDateTime(c.closed_at) %>
+                        <%= c.winning_user_id ? '· won' : '· no sale' %>
+                      </div>
+                    </div>
+                    <div class="amt mono"><%= c.final_amount ? money.format(c.final_amount) : '—' %></div>
+                  </div>
+                <% }); %>
+              </div>
+              <p class="xsmall muted mt-2">
+                We hold stock, so a vehicle stays on sale after a cycle is won —
+                each cycle above concluded with its own buyer.
+              </p>
+            </details>
+          <% } %>
+</section>
+
         <!-- Delivery estimate -->
         <div class="card card-pad mt-3">
           <div class="row" style="gap:9px;margin-bottom:6px">
@@ -460,6 +342,130 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
           </a>
         </div>
       </aside>
+
+      <div class="lot-details">
+        <div class="promise-strip mt-3">
+          <div>
+            <div class="n"><%= brand.terms.inspectionDays %></div>
+            <div class="l">Day money back</div>
+          </div>
+          <div>
+            <div class="n">US</div>
+            <div class="l">Nationwide delivery</div>
+          </div>
+          <div>
+            <div class="n"><%= listing.title_status || 'Clean' %></div>
+            <div class="l">Title included</div>
+          </div>
+          <div>
+            <div class="n">0%</div>
+            <div class="l">Buyer premium</div>
+          </div>
+        </div>
+
+        <!-- Buyers ask for a walkthrough by name, so the slot is always here
+             even before the video has been filmed. -->
+        <dialog class="modal" data-video-dialog>
+          <div class="modal-head">
+            <div>
+              <h2 class="h3">Vehicle video</h2>
+              <div class="mono xsmall muted" style="margin-top:4px"><%= listing.title.toUpperCase() %></div>
+            </div>
+            <button type="button" class="modal-close" data-video-close aria-label="Close">×</button>
+          </div>
+          <div class="modal-body center">
+            <h3 class="h4">No video yet</h3>
+            <p class="small muted mt-1" style="max-width:44ch;margin-inline:auto">
+              Ask us and we will film a walkthrough — cold start, panel-by-panel
+              exterior, interior and anything called out in the description.
+            </p>
+            <a href="/contact?subject=<%= encodeURIComponent('Video request: ' + listing.title) %>"
+               class="btn btn-primary mt-3 btn-inline">Request a walkthrough</a>
+          </div>
+        </dialog>
+
+        <!-- Specifications -->
+        <h2 class="h3 mt-5 mb-2">Specifications</h2>
+        <table class="spec-table">
+          <tbody>
+            <tr><th>Year</th><td><%= listing.year || '—' %></td></tr>
+            <tr><th>Manufacturer</th><td><%= listing.make || '—' %></td></tr>
+            <tr><th>Model</th><td><%= listing.model || '—' %></td></tr>
+            <% if (listing.trim) { %><tr><th>Trim</th><td><%= listing.trim %></td></tr><% } %>
+            <tr><th>Odometer</th><td><%= meterLabel %></td></tr>
+            <% if (listing.body_style) { %><tr><th>Body style</th><td><%= listing.body_style %></td></tr><% } %>
+            <% if (listing.engine_type) { %><tr><th>Engine</th><td><%= listing.engine_type %></td></tr><% } %>
+            <% if (listing.engine_hp) { %><tr><th>Horsepower</th><td><%= listing.engine_hp %> HP</td></tr><% } %>
+            <% if (listing.transmission) { %><tr><th>Transmission</th><td><%= listing.transmission %></td></tr><% } %>
+            <% if (listing.drivetrain) { %><tr><th>Drivetrain</th><td><%= listing.drivetrain %></td></tr><% } %>
+            <% if (listing.fuel_type) { %><tr><th>Fuel type</th><td><%= listing.fuel_type %></td></tr><% } %>
+            <% if (listing.exterior_color) { %><tr><th>Exterior colour</th><td><%= listing.exterior_color %></td></tr><% } %>
+            <% if (listing.interior_color && listing.interior_color !== 'n/a') { %><tr><th>Interior</th><td><%= listing.interior_color %></td></tr><% } %>
+            <% if (listing.doors) { %><tr><th>Doors / seats</th><td><%= listing.doors %> doors · <%= listing.seats %> seats</td></tr><% } %>
+            <tr><th>VIN</th><td class="mono"><%= listing.vin || 'On request' %></td></tr>
+            <tr>
+              <th>Title status</th>
+              <td>
+                <%= listing.title_status || 'Clean' %>
+                <% if ((listing.title_status || 'Clean') === 'Clean') { %>
+                  <span class="badge badge-success" style="margin-left:6px">Clean title</span>
+                <% } else { %>
+                  <span class="badge badge-warn" style="margin-left:6px"><%= listing.title_status %></span>
+                <% } %>
+              </td>
+            </tr>
+            <tr><th>Condition</th><td style="text-transform:capitalize"><%= listing.condition %></td></tr>
+            <tr><th>Stock number</th><td><%= listing.stock_number || '—' %></td></tr>
+            <tr><th>Location</th><td><%= listing.location_city %>, <%= listing.location_state %> <%= listing.location_zip %></td></tr>
+            <tr><th>Category</th><td><%= listing.category_name || '—' %></td></tr>
+          </tbody>
+        </table>
+
+        <% if (listing.specs && listing.specs.length) { %>
+          <% listing.specs.forEach(function (group) { %>
+            <h3 class="h4 mt-4 mb-2"><%= group.group %></h3>
+            <table class="spec-table">
+              <tbody>
+                <% (group.items || []).forEach(function (item) { %>
+                  <tr><th><%= item.label %></th><td><%= item.value %></td></tr>
+                <% }); %>
+              </tbody>
+            </table>
+          <% }); %>
+        <% } %>
+
+        <!-- Overview -->
+        <% if (listing.description) { %>
+          <h2 class="h3 mt-5 mb-2">Vehicle overview</h2>
+          <div class="card card-pad">
+            <p style="line-height:1.75;white-space:pre-line"><%= listing.description %></p>
+
+            <% if (listing.highlights && listing.highlights.length) { %>
+              <ul class="stack mt-3" style="--stack-gap:10px">
+                <% listing.highlights.forEach(function (h) { %>
+                  <li class="row" style="gap:10px;align-items:flex-start;flex-wrap:nowrap">
+                    <span style="color:var(--success);flex:none;margin-top:3px">
+                      <%- include('../partials/icons', { icon: 'check', strokeWidth: 2.4 }) %>
+                    </span>
+                    <span class="small"><%= h %></span>
+                  </li>
+                <% }); %>
+              </ul>
+            <% } %>
+
+            <div class="alert alert-warning mt-3">
+              <div>
+                <strong>Every purchase includes a <%= brand.terms.inspectionDays %>-day inspection period after delivery.</strong>
+                If the vehicle does not match its description we arrange collection at our
+                cost and refund you in full within <%= brand.terms.refundWindowHours %> hours.
+                A <%= brand.terms.warrantyMonths %>-month warranty follows the inspection window.
+              </div>
+            </div>
+          </div>
+        <% } %>
+
+            </div>
+
     </div>
   </div>
 </section>
