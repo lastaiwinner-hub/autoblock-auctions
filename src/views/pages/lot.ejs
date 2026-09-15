@@ -53,6 +53,8 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
 </section>
 
 
+
+<nav class="wrap product-index" aria-label="Product sections"><a href="#bidding">Bidding</a><% if(listing.description){ %><a href="#overview">Overview</a><% } %><a href="#specifications">Specifications</a><a href="#records">Vehicle file</a><a href="#auction-guide">Auction guide</a><a href="#delivery-guide">Delivery</a><a href="#lot-questions">Questions</a></nav>
 <section class="section">
   <div class="wrap">
     <div class="lot-layout">
@@ -107,6 +109,7 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
           <% } %>
         </div>
 
+<div class="lot-snapshot" aria-label="Key facts"><div><span>Odometer</span><strong><%= meterLabel %></strong></div><div><span>Power</span><strong><%= listing.engine_hp ? listing.engine_hp + ' HP' : 'On request' %></strong></div><div><span>Drivetrain</span><strong><%= listing.drivetrain || 'On request' %></strong></div><div><span>Fuel</span><strong><%= listing.fuel_type || 'On request' %></strong></div></div>
       </div>
 
       <!-- Bidding panel -->
@@ -344,6 +347,37 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
       </aside>
 
       <div class="lot-details">
+        <!-- Overview -->
+        <% if (listing.description) { %>
+          <h2 class="h3 mt-5 mb-2" id="overview">Vehicle overview</h2>
+          <div class="card card-pad">
+            <p style="line-height:1.75;white-space:pre-line"><%= listing.description %></p>
+
+            <% if (listing.highlights && listing.highlights.length) { %>
+              <ul class="stack mt-3" style="--stack-gap:10px">
+                <% listing.highlights.forEach(function (h) { %>
+                  <li class="row" style="gap:10px;align-items:flex-start;flex-wrap:nowrap">
+                    <span style="color:var(--success);flex:none;margin-top:3px">
+                      <%- include('../partials/icons', { icon: 'check', strokeWidth: 2.4 }) %>
+                    </span>
+                    <span class="small"><%= h %></span>
+                  </li>
+                <% }); %>
+              </ul>
+            <% } %>
+
+            <div class="alert alert-warning mt-3">
+              <div>
+                <strong>Every purchase includes a <%= brand.terms.inspectionDays %>-day inspection period after delivery.</strong>
+                If the vehicle does not match its description we arrange collection at our
+                cost and refund you in full within <%= brand.terms.refundWindowHours %> hours.
+                A <%= brand.terms.warrantyMonths %>-month warranty follows the inspection window.
+              </div>
+            </div>
+          </div>
+        <% } %>
+
+
         <div class="promise-strip mt-3">
           <div>
             <div class="n"><%= brand.terms.inspectionDays %></div>
@@ -354,7 +388,7 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
             <div class="l">Nationwide delivery</div>
           </div>
           <div>
-            <div class="n"><%= listing.title_status || 'Clean' %></div>
+            <div class="n"><%= listing.title_status || 'Not supplied' %></div>
             <div class="l">Title included</div>
           </div>
           <div>
@@ -385,7 +419,7 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
         </dialog>
 
         <!-- Specifications -->
-        <h2 class="h3 mt-5 mb-2">Specifications</h2>
+        <h2 id="specifications" class="h3 mt-5 mb-2">Specifications</h2>
         <table class="spec-table">
           <tbody>
             <tr><th>Year</th><td><%= listing.year || '—' %></td></tr>
@@ -406,8 +440,8 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
             <tr>
               <th>Title status</th>
               <td>
-                <%= listing.title_status || 'Clean' %>
-                <% if ((listing.title_status || 'Clean') === 'Clean') { %>
+                <%= listing.title_status || 'Not supplied' %>
+                <% if ((listing.title_status || 'Not supplied') === 'Clean') { %>
                   <span class="badge badge-success" style="margin-left:6px">Clean title</span>
                 <% } else { %>
                   <span class="badge badge-warn" style="margin-left:6px"><%= listing.title_status %></span>
@@ -434,41 +468,15 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
           <% }); %>
         <% } %>
 
-        <!-- Overview -->
-        <% if (listing.description) { %>
-          <h2 class="h3 mt-5 mb-2">Vehicle overview</h2>
-          <div class="card card-pad">
-            <p style="line-height:1.75;white-space:pre-line"><%= listing.description %></p>
 
-            <% if (listing.highlights && listing.highlights.length) { %>
-              <ul class="stack mt-3" style="--stack-gap:10px">
-                <% listing.highlights.forEach(function (h) { %>
-                  <li class="row" style="gap:10px;align-items:flex-start;flex-wrap:nowrap">
-                    <span style="color:var(--success);flex:none;margin-top:3px">
-                      <%- include('../partials/icons', { icon: 'check', strokeWidth: 2.4 }) %>
-                    </span>
-                    <span class="small"><%= h %></span>
-                  </li>
-                <% }); %>
-              </ul>
-            <% } %>
-
-            <div class="alert alert-warning mt-3">
-              <div>
-                <strong>Every purchase includes a <%= brand.terms.inspectionDays %>-day inspection period after delivery.</strong>
-                If the vehicle does not match its description we arrange collection at our
-                cost and refund you in full within <%= brand.terms.refundWindowHours %> hours.
-                A <%= brand.terms.warrantyMonths %>-month warranty follows the inspection window.
-              </div>
-            </div>
-          </div>
-        <% } %>
 
             </div>
 
     </div>
   </div>
 </section>
+
+<div class="wrap product-dossier"><%- include('../partials/lot-dossier') %></div>
 
 <% if (related.length) { %>
   <section class="section section-alt">
