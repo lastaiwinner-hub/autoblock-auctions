@@ -54,8 +54,8 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
 
 
 
-<nav class="wrap product-index" aria-label="Product sections"><a href="#bidding">Bidding</a><% if(listing.description){ %><a href="#overview">Overview</a><% } %><a href="#specifications">Specifications</a><a href="#records">Vehicle file</a><a href="#auction-guide">Auction guide</a><a href="#delivery-guide">Delivery</a><a href="#lot-questions">Questions</a></nav>
-<section class="section">
+<nav class="wrap product-index" aria-label="Product sections"><a href="#bidding">01 / Auction</a><% if(listing.description){ %><a href="#overview">02 / Vehicle</a><% } %><a href="#specifications">03 / Specification</a><a href="#records">04 / History</a><a href="#auction-guide">05 / Buying</a><a href="#delivery-guide">06 / Delivery</a><a href="#lot-questions">07 / Questions</a></nav>
+<section class="section auto-vehicle-page">
   <div class="wrap">
     <div class="lot-layout">
       <!-- Product photography -->
@@ -97,7 +97,7 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
           <% } %>
         </div>
 
-        <div class="row mt-2" style="gap:9px">
+        <div class="row mt-2 auto-gallery-tools" style="gap:9px">
           <button type="button" class="btn btn-dark btn-inline" data-video-open>
             <%- include('../partials/icons', { icon: 'camera', strokeWidth: 1.9 }) %>
             See walkthrough video
@@ -113,9 +113,9 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
       </div>
 
       <!-- Bidding panel -->
-      <aside>
+      <aside class="auto-auction-floor" aria-label="Auction and buying options">
         <div class="bidbox" id="bidding" data-live-lot="<%= listing.slug %>">
-          <div class="bidbox-head">
+          <div class="bidbox-head"><div class="auto-auction-caption"><span>THE AUCTION</span><span><%= live ? 'BIDDING OPEN' : 'AUCTION STATUS' %></span></div>
             <div class="row-between" style="align-items:flex-start">
               <div>
                 <div class="bid-label"><%= hasBids ? 'Current bid' : 'Opening bid' %></div>
@@ -268,7 +268,7 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
           </div>
         </div>
 
-<section class="lot-activity" id="history" aria-labelledby="activity-title"><div class="activity-heading"><h2 id="activity-title">Recent bids</h2><span data-activity-count><%= history.length %> shown</span></div><div class="activity-feed" data-live-history tabindex="0" aria-label="Recent bids, newest first"><% history.forEach(function(b,i){ %><div class="bid-row <%= currentUser && b.user_id === currentUser.id ? 'is-you' : '' %>"><div><div class="small" style="font-weight:600"><%= maskBidder(b) %><% if(currentUser && b.user_id === currentUser.id){ %> <span class="badge badge-accent">You</span><% } %><% if(b.is_auto){ %> <span class="badge badge-muted">Auto</span><% } %></div><div class="xsmall muted"><%= dates.relative(b.created_at) %></div></div><div class="amt mono"><%= money.format(b.amount) %></div></div><% }); %><% if(!history.length){ %><p class="activity-empty">No bids yet. The opening bid is <%= money.format(listing.starting_bid) %>.</p><% } %></div><div class="activity-foot"><span>Newest first · Bidder names masked</span><span data-activity-sync>Updates every 12 seconds</span></div>          <% if (previousCycles.length) { %>
+<section class="lot-activity" id="history" aria-labelledby="activity-title"><div class="activity-heading"><h2 id="activity-title">The bid log</h2><span data-activity-count><%= history.length %> shown</span></div><div class="activity-feed" data-live-history tabindex="0" aria-label="Recent bids, newest first"><% history.forEach(function(b,i){ %><div class="bid-row <%= currentUser && b.user_id === currentUser.id ? 'is-you' : '' %>"><div><div class="small" style="font-weight:600"><%= maskBidder(b) %><% if(currentUser && b.user_id === currentUser.id){ %> <span class="badge badge-accent">You</span><% } %><% if(b.is_auto){ %> <span class="badge badge-muted">Auto</span><% } %></div><div class="xsmall muted"><%= dates.relative(b.created_at) %></div></div><div class="amt mono"><%= money.format(b.amount) %></div></div><% }); %><% if(!history.length){ %><p class="activity-empty">No bids yet. The opening bid is <%= money.format(listing.starting_bid) %>.</p><% } %></div><div class="activity-foot"><span>Newest first · Bidder names masked</span><span data-activity-sync>Updates every 12 seconds</span></div>          <% if (previousCycles.length) { %>
             <details class="mt-3">
               <summary class="small" style="cursor:pointer;font-weight:600">Previous auction cycles (<%= previousCycles.length %>)</summary>
               <div class="mt-2">
@@ -347,9 +347,9 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
       </aside>
 
       <div class="lot-details">
-        <!-- Overview -->
+<article class="auto-story">        <!-- Overview -->
         <% if (listing.description) { %>
-          <h2 class="h3 mt-5 mb-2" id="overview">Vehicle overview</h2>
+          <h2 class="h3 mt-5 mb-2" id="overview">About this vehicle</h2>
           <div class="card card-pad">
             <p style="line-height:1.75;white-space:pre-line"><%= listing.description %></p>
 
@@ -378,6 +378,7 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
         <% } %>
 
 
+</article>
         <div class="promise-strip mt-3">
           <div>
             <div class="n"><%= brand.terms.inspectionDays %></div>
@@ -418,8 +419,8 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
           </div>
         </dialog>
 
-        <!-- Specifications -->
-        <h2 id="specifications" class="h3 mt-5 mb-2">Specifications</h2>
+<article class="auto-specification">        <!-- Specifications -->
+        <h2 id="specifications" class="h3 mt-5 mb-2">The specification</h2>
         <table class="spec-table">
           <tbody>
             <tr><th>Year</th><td><%= listing.year || '—' %></td></tr>
@@ -469,6 +470,7 @@ const nextSteps = [minimum, minimum + listing.bid_increment, minimum + listing.b
         <% } %>
 
 
+</article>
 
             </div>
 
