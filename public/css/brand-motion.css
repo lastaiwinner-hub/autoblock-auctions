@@ -1,0 +1,23 @@
+/* AutoBlock identity and motion: one easing curve, no perpetual blinking. */
+.brand-auto{--motion-ease:cubic-bezier(.22,1,.36,1)}
+.exchange-logo,.autoblock-footer-logo{display:inline-flex;align-items:center;gap:11px;text-decoration:none}
+.exchange-logo>img,.autoblock-footer-logo>img{width:52px;height:39px;flex:none;object-fit:contain}
+.autoblock-wordmark{display:block;line-height:1}
+.autoblock-word{display:block;font-family:Manrope,Inter,sans-serif;font-size:23px;letter-spacing:-1.1px;font-weight:450;white-space:nowrap;color:#fff}
+.autoblock-word strong{font-weight:800}
+.exchange-logo small,.autoblock-footer-logo small{display:block;margin-top:8px;font:550 7px/1.3 Inter,sans-serif;letter-spacing:1.65px;color:#c2c6c9}
+.brand-auto .btn,.brand-auto .exchange-register{transition:background-color 220ms var(--motion-ease),color 220ms var(--motion-ease),border-color 220ms var(--motion-ease),box-shadow 220ms var(--motion-ease)!important}
+.brand-auto .btn:hover,.brand-auto .exchange-register:hover{transform:none!important}
+.brand-auto .auction-card{transition:box-shadow 300ms var(--motion-ease),border-color 300ms var(--motion-ease),transform 300ms var(--motion-ease)}
+.brand-auto .auction-card:hover{transform:translateY(-2px);box-shadow:0 10px 25px #17212d12}
+.brand-auto .auction-card img{transition:transform 500ms var(--motion-ease)}
+.brand-auto .auction-card:hover img{transform:scale(1.015)}
+.brand-auto .dot-pulse,.brand-auto .live-dot,.brand-auto .led-pulse{animation:none!important}
+.brand-auto .hero-pitch,.brand-auto .hero-auction{animation:none!important}
+.brand-auto .thumb{transition:opacity 220ms var(--motion-ease),outline-color 220ms var(--motion-ease)!important}
+.brand-auto .gallery-main{isolation:isolate}
+.brand-auto .gallery-main .gallery-outgoing{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.brand-auto .gallery-nav,.brand-auto .gallery-count{z-index:2}
+.brand-auto a:focus-visible,.brand-auto button:focus-visible{outline:2px solid #e86d49;outline-offset:4px}
+@media(max-width:600px){.exchange-logo{gap:7px}.exchange-logo>img{width:38px;height:30px}.exchange-logo .autoblock-word{font-size:18px;letter-spacing:-.8px}.exchange-logo small{font-size:5.5px;letter-spacing:1px;margin-top:6px}}
+@media(prefers-reduced-motion:reduce){.brand-auto *, .brand-auto *::before,.brand-auto *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
