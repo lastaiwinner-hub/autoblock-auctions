@@ -19,6 +19,7 @@ db.pragma('busy_timeout = 5000');
 function migrate() {
   const sql = fs.readFileSync(path.join(__dirname, '..', 'db', 'schema.sql'), 'utf8');
   db.exec(sql);
+  db.exec(fs.readFileSync(path.join(__dirname, '..', 'db', 'engagement.sql'), 'utf8'));
 }
 
 /** Run a function inside a transaction, rolling back on any throw. */
